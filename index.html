@@ -1,293 +1,1015 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kartavyata — Nurturing Today, Empowering Tomorrow</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,500..700&family=Inter:wght@400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --navy:#1B4D7A;
-    --navy-deep:#0E3258;
-    --green:#3E8E41;
-    --green-deep:#2E6B30;
-    --orange:#F2922E;
-    --pink:#E8447A;
-    --blue:#2D8FD1;
-    --paper:#FFFFFF;
-    --cream:#FFF8EE;
-    --ink:#27313F;
-    --slate:#5C6779;
-    --line:#ECE4D4;
-  }
-  *{box-sizing:border-box;}
-  body{margin:0;background:var(--cream);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-  img,svg{max-width:100%;display:block;}
-  a{color:inherit;text-decoration:none;}
-  button{font-family:inherit;cursor:pointer;}
-  .display{font-family:'Fraunces',serif;font-weight:700;letter-spacing:-0.01em;}
-  .script{font-family:'Caveat',cursive;}
-  .wrap{max-width:1320px;margin:0 auto;padding:0 40px;}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kartavyata - Nurturing Today, Empowering Tomorrow</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,600;1,400&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
 
-  /* ============ HEADER ============ */
-  header{background:var(--paper);position:relative;z-index:40;}
-  .nav-row{display:flex;align-items:center;justify-content:space-between;padding:26px 0 18px;gap:24px;}
-
-  .brand{display:flex;flex-direction:column;}
-  .brand-mark{display:flex;align-items:center;}
-  .brand-mark .feather-wrap{height:64px;flex-shrink:0;}
-  .brand-mark .feather-wrap img{height:100%;width:auto;display:block;}
-
-  nav.links{display:flex;gap:34px;align-items:center;}
-  nav.links a{font-weight:600;font-size:1.02rem;color:var(--ink);position:relative;padding-bottom:6px;transition:color .15s;}
-  nav.links a:hover{color:var(--green-deep);}
-  nav.links a.active{color:var(--green-deep);}
-  nav.links a.active::after{
-    content:"";position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--green-deep);border-radius:2px;
-  }
-
-  .btn-donate{
-    background:var(--green-deep);color:#fff;padding:13px 28px;border-radius:999px;font-weight:700;font-size:0.98rem;
-    box-shadow:0 10px 24px -10px rgba(46,107,48,0.55);transition:transform .15s, box-shadow .15s;border:none;flex-shrink:0;
-  }
-  .btn-donate:hover{transform:translateY(-1px);box-shadow:0 16px 28px -10px rgba(46,107,48,0.6);}
-  .menu-toggle{display:none;background:none;border:none;}
-
-  /* ============ HERO ============ */
-  .hero{position:relative;padding:18px 0 0;}
-  .hero-grid{display:grid;grid-template-columns:0.95fr 1.05fr;gap:10px;align-items:center;}
-
-  .eyebrow-line{
-    width:80px;height:2px;background:var(--orange);margin:6px 0 22px;position:relative;
-  }
-  .eyebrow-line::after{content:"";position:absolute;left:50%;top:-3px;transform:translateX(-50%);width:8px;height:8px;border-radius:50%;background:var(--orange);}
-
-  .headline{font-size:clamp(2.2rem,4vw,3.3rem);line-height:1.12;margin:0 0 20px;}
-  .headline .l1{color:var(--navy);display:block;}
-  .headline .l2{display:block;}
-  .headline .l2 .empower{color:var(--orange);}
-  .headline .l2 .tomorrow{color:var(--green-deep);}
-
-  .hero p.lede{font-size:1.08rem;line-height:1.65;color:var(--slate);max-width:460px;margin:0 0 38px;}
-
-  .value-row{display:flex;gap:26px;flex-wrap:wrap;}
-  .value-item{text-align:center;width:118px;}
-  .value-circle{
-    width:78px;height:78px;border-radius:50%;border:2px solid var(--c);
-    display:flex;align-items:center;justify-content:center;margin:0 auto 10px;background:#fff;
-  }
-  .value-circle svg{width:34px;height:34px;}
-  .value-item .lbl{font-weight:800;font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:6px;}
-  .value-item .sub{font-size:0.78rem;color:var(--slate);line-height:1.35;}
-  .value-item.education .lbl{color:var(--green-deep);}
-  .value-item.health .lbl{color:var(--pink);}
-  .value-item.protection .lbl{color:var(--orange);}
-  .value-item.empowerment .lbl{color:var(--blue);}
-  .value-divider{width:1px;background:var(--line);align-self:stretch;margin:6px 0;}
-
-  /* ---- right photo panel ---- */
-  .hero-photo{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:11/9;}
-  .hero-photo .bg{position:absolute;inset:0;}
-  .hero-photo .doodle{position:absolute;z-index:5;pointer-events:none;}
-  .doodle-plane{top:6%;left:18%;width:90px;}
-  .doodle-leaves{top:4%;right:2%;width:230px;}
-  .photo-caption{
-    position:absolute;left:24px;bottom:26px;z-index:4;color:#fff;font-family:'Fraunces',serif;font-weight:600;
-    font-size:1rem;background:rgba(14,50,88,0.45);padding:8px 16px;border-radius:999px;backdrop-filter:blur(3px);
-  }
-
-  /* ---- wave divider ---- */
-  .wave-divider{position:relative;margin-top:-40px;z-index:30;}
-  .wave-divider svg{display:block;width:100%;height:auto;}
-
-  /* ============ TRUST STRIP ============ */
-  .trust-strip{background:#fff;padding:30px 0 40px;}
-  .trust-row{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap;}
-  .trust-items{display:flex;align-items:center;gap:0;flex-wrap:wrap;}
-  .trust-item{display:flex;align-items:center;gap:12px;padding:0 22px;}
-  .trust-item .ic{width:40px;height:40px;flex-shrink:0;}
-  .trust-item .txt{font-weight:700;font-size:0.92rem;color:var(--navy);line-height:1.25;}
-  .trust-sep{width:1px;height:34px;background:var(--line);}
-  .trust-tagline{font-size:1.5rem;color:var(--navy);text-align:right;display:flex;align-items:center;gap:8px;}
-  .trust-tagline svg{width:22px;height:22px;color:var(--orange);}
-
-  @media (max-width:1080px){
-    .hero-grid{grid-template-columns:1fr;}
-    .hero-photo{aspect-ratio:16/10;margin-top:20px;}
-    nav.links{display:none;}
-    .menu-toggle{display:block;}
-    .trust-tagline{text-align:left;}
-  }
-  @media (max-width:640px){
-    .nav-row{padding:18px 0;}
-    .value-row{justify-content:center;}
-    .value-divider{display:none;}
-    .trust-row{justify-content:center;}
-    .trust-item{padding:8px 14px;}
-    .trust-sep{display:none;}
-  }
-</style>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+    .font-display {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .font-serif {
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
 </head>
-<body>
+<body class="bg-white text-slate-800 antialiased selection:bg-emerald-100 selection:text-emerald-900">
 
-<header>
-  <div class="wrap nav-row">
-    <a href="#" class="brand">
-      <div class="brand-mark">
-        <div class="feather-wrap">
-          <img src="https://res.cloudinary.com/djldnhmfn/image/upload/v1782283794/Kart_Logo_hu12qx.jpg" alt="Kartavyata logo">
-        </div>
-      </div>
-    </a>
+  <!-- ================= HEADER / NAVIGATION ================= -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-md py-3">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between">
+        
+        <!-- Logo -->
+        <a href="#home" class="flex items-center gap-3 select-none">
+          <img 
+            src="https://res.cloudinary.com/djldnhmfn/image/upload/v1782283794/Kart_Logo_hu12qx.jpg"
+            alt="Kartavyata Logo"
+            class="h-12 md:h-14 w-auto object-contain rounded"
+          />
+        </a>
 
-    <nav class="links">
-      <a href="#" class="active">Home</a>
-      <a href="#">About Us</a>
-      <a href="#">Our Work</a>
-      <a href="#">Get Involved</a>
-      <a href="#">Gallery</a>
-      <a href="#">Contact Us</a>
-    </nav>
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center gap-8">
+          <a href="#home" class="text-sm font-medium text-emerald-600 hover:text-emerald-700 transition-colors">Home</a>
+          <a href="#pillars" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">Our Work</a>
+          <a href="#impact" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">Impact & Support</a>
+          <a href="#get-involved" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">Get Involved</a>
+          <a href="#gallery" class="text-sm font-medium text-gray-600 hover:text-emerald-600 transition-colors">Gallery</a>
+        </nav>
 
-    <a href="#" class="btn-donate">Donate Now</a>
-    <button class="menu-toggle" aria-label="Menu">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-    </button>
-  </div>
-</header>
+        <!-- CTA Trigger -->
+        <div class="hidden md:flex items-center gap-4">
+          <button onclick="openDonationModal()" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-emerald-700 hover:bg-emerald-800 text-white font-medium text-sm rounded-full shadow-sm hover:shadow transition-all duration-200 cursor-pointer">
+            <i data-lucide="heart" class="w-4 h-4 fill-white/10"></i>
+            <span>Donate Now</span>
+          </button>
+        </div>
 
-<section class="hero">
-  <div class="wrap hero-grid">
-    <!-- ===== LEFT: copy + value icons ===== -->
-    <div>
-      <div class="eyebrow-line"></div>
-      <h1 class="headline display">
-        <span class="l1">Nurturing Today,</span>
-        <span class="l2"><span class="empower">Empowering</span> <span class="tomorrow">Tomorrow.</span></span>
-      </h1>
-      <p class="lede">We nurture, empower and transform the lives of children through education, healthcare, protection and opportunity.</p>
+        <!-- Mobile Toggle -->
+        <div class="flex md:hidden items-center gap-3">
+          <button onclick="openDonationModal()" class="p-2 bg-emerald-50 text-emerald-700 rounded-full hover:bg-emerald-100">
+            <i data-lucide="heart" class="w-5 h-5 fill-emerald-600"></i>
+          </button>
+          <button onclick="toggleMobileMenu()" class="p-2 text-gray-600 hover:text-emerald-600">
+            <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+          </button>
+        </div>
 
-      <div class="value-row">
-        <div class="value-item education">
-          <div class="value-circle" style="--c:#3E8E41;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#3E8E41" stroke-width="1.8"><path d="M2 5c3-1.5 6-1.5 9 0v14c-3-1.5-6-1.5-9 0V5Z"/><path d="M22 5c-3-1.5-6-1.5-9 0v14c3-1.5 6-1.5 9 0V5Z"/></svg>
-          </div>
-          <div class="lbl">Education</div>
-          <div class="sub">Building minds, shaping futures</div>
-        </div>
-        <div class="value-divider"></div>
-        <div class="value-item health">
-          <div class="value-circle" style="--c:#E8447A;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#E8447A" stroke-width="1.8"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8Z"/><path d="M3 12h4l2-4 3 7 2-4h6" stroke="#E8447A"/></svg>
-          </div>
-          <div class="lbl">Health</div>
-          <div class="sub">Healthy children, brighter tomorrows</div>
-        </div>
-        <div class="value-divider"></div>
-        <div class="value-item protection">
-          <div class="value-circle" style="--c:#F2922E;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#F2922E" stroke-width="1.8"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><circle cx="12" cy="9.5" r="2.4" fill="#F2922E" stroke="none"/><path d="M8.5 15c.6-2 2-3 3.5-3s2.9 1 3.5 3" stroke="#F2922E"/></svg>
-          </div>
-          <div class="lbl">Protection</div>
-          <div class="sub">Safe childhoods, stronger lives</div>
-        </div>
-        <div class="value-divider"></div>
-        <div class="value-item empowerment">
-          <div class="value-circle" style="--c:#2D8FD1;">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#2D8FD1" stroke-width="1.8"><circle cx="12" cy="7" r="3"/><path d="M5 21c0-3 2.5-6 7-6"/><path d="M19 21c0-3-2.5-6-7-6"/><path d="M5 13 2 9M19 13l3-4"/></svg>
-          </div>
-          <div class="lbl">Empowerment</div>
-          <div class="sub">Building confidence, creating leaders</div>
-        </div>
       </div>
     </div>
 
-    <!-- ===== RIGHT: photo placeholder + doodles ===== -->
-    <div class="hero-photo">
-      <div class="bg">
-        <svg viewBox="0 0 760 620" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
-          <defs>
-            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#FFF3DF"/>
-              <stop offset="100%" stop-color="#CFE6C9"/>
-            </linearGradient>
-          </defs>
-          <rect width="760" height="620" fill="url(#g1)"/>
-          <g opacity="0.5" fill="#7CA978">
-            <ellipse cx="80" cy="520" rx="160" ry="90"/>
-            <ellipse cx="650" cy="500" rx="190" ry="110"/>
-            <ellipse cx="380" cy="540" rx="220" ry="80"/>
-          </g>
-          <!-- placeholder children group silhouette: swap this <g> for a real <image>/<img> of your children photo -->
-          <g>
-            <circle cx="230" cy="300" r="62" fill="#1B4D7A"/><rect x="172" y="350" width="118" height="200" rx="30" fill="#1B4D7A"/>
-            <circle cx="370" cy="320" r="58" fill="#F2922E"/><rect x="318" y="365" width="106" height="190" rx="28" fill="#F2922E"/>
-            <circle cx="500" cy="305" r="64" fill="#2D8FD1"/><rect x="440" y="355" width="122" height="200" rx="30" fill="#2D8FD1"/>
-            <circle cx="630" cy="330" r="56" fill="#E8447A"/><rect x="580" y="375" width="102" height="185" rx="28" fill="#E8447A"/>
-          </g>
-        </svg>
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 shadow-lg">
+      <div class="px-4 pt-3 pb-6 space-y-3">
+        <a href="#home" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg text-base font-medium bg-emerald-50 text-emerald-700">Home</a>
+        <a href="#pillars" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg text-base font-medium text-gray-600 hover:bg-gray-50">Our Work</a>
+        <a href="#impact" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg text-base font-medium text-gray-600 hover:bg-gray-50">Impact & Support</a>
+        <a href="#get-involved" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg text-base font-medium text-gray-600 hover:bg-gray-50">Get Involved</a>
+        <a href="#gallery" onclick="toggleMobileMenu()" class="block px-4 py-2.5 rounded-lg text-base font-medium text-gray-600 hover:bg-gray-50">Gallery</a>
+        <div class="pt-3 px-4">
+          <button onclick="openDonationModal(); toggleMobileMenu();" class="w-full flex items-center justify-center gap-2 py-3 bg-emerald-700 text-white font-medium rounded-xl shadow-md">
+            <i data-lucide="heart" class="w-5 h-5"></i>
+            <span>Donate Now</span>
+          </button>
+        </div>
       </div>
+    </div>
+  </header>
 
-      <svg class="doodle doodle-plane" viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5 60 Q35 75 55 50" stroke="#3E8E41" stroke-width="2" stroke-dasharray="5 5" fill="none"/>
-        <path d="M55 18 L92 8 L62 36 L58 55 L48 38 L25 30 Z" fill="none" stroke="#3E8E41" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- ================= HERO SECTION ================= -->
+  <section id="home" class="relative min-h-screen pt-32 pb-16 flex items-center overflow-hidden bg-gradient-to-br from-slate-50 via-white to-emerald-50/20">
+    <div class="absolute inset-0 pointer-events-none opacity-20">
+      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#cbd5e1" strokeWidth="0.5" />
+        </pattern>
+        <rect width="100%" height="100%" fill="url(#grid)" />
       </svg>
+    </div>
 
-      <svg class="doodle doodle-leaves" viewBox="0 0 240 180" xmlns="http://www.w3.org/2000/svg">
-        <g fill="#6FAE5E" opacity="0.9">
-          <path d="M40 170 C40 100 70 60 110 40 C100 90 80 140 40 170Z"/>
-          <path d="M70 175 C75 120 100 85 135 65 C125 110 110 150 70 175Z"/>
-        </g>
-        <g fill="#F2922E"><circle cx="150" cy="40" r="6"/><circle cx="205" cy="60" r="5"/><circle cx="20" cy="100" r="5"/></g>
-        <g fill="#2D8FD1" opacity="0.8"><path d="M180 30 q14 14 0 30 q-14 -14 0 -30Z"/><path d="M210 80 q12 12 0 26 q-12 -12 0 -26Z"/></g>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Side: Copywriting and Call to Actions -->
+        <div class="lg:col-span-7 flex flex-col items-start text-left">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 bg-emerald-50 rounded-full border border-emerald-100 text-xs font-bold text-emerald-800 uppercase tracking-widest mb-6 select-none font-mono">
+            || कर्तव्यता ||
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-none text-slate-900 font-display">
+            <span class="text-[#0b3c5d]">Nurturing</span> Today,<br/>
+            <span class="text-[#f58220] block my-2">Empowering</span>
+            <span class="text-emerald-600">Tomorrow.</span>
+          </h1>
+
+          <p class="mt-6 text-lg sm:text-xl text-slate-600 max-w-xl leading-relaxed">
+            We nurture, empower and transform the lives of children through education, care and opportunities. Join our mission to build secure childhoods and sustainable futures.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-4 w-full sm:w-auto">
+            <button onclick="openDonationModal()" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-base rounded-2xl shadow-lg transition-all duration-200">
+              <i data-lucide="heart" class="w-5 h-5 fill-white/10"></i>
+              <span>Support Our Cause</span>
+            </button>
+            <a href="#pillars" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white hover:bg-slate-50 border-2 border-slate-200 text-slate-700 font-bold text-base rounded-2xl transition-all">
+              <span>Our Impact Areas</span>
+              <i data-lucide="arrow-right" class="w-5 h-5 ml-1 text-slate-400"></i>
+            </a>
+          </div>
+
+          <!-- Micro-statistics -->
+          <div class="mt-12 flex items-center gap-6 border-t border-slate-100 pt-6 w-full">
+            <div>
+              <span class="block text-2xl font-black text-slate-900 font-display">15,400+</span>
+              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Children Impacted</span>
+            </div>
+            <div class="w-px h-10 bg-slate-200"></div>
+            <div>
+              <span class="block text-2xl font-black text-slate-900 font-display">100%</span>
+              <span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Transparent Use</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Children Image & Decorative Shapes -->
+        <div class="lg:col-span-5 relative flex items-center justify-center">
+          <div class="absolute -top-12 -right-12 w-64 h-64 bg-amber-400/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div class="absolute -bottom-8 -left-8 w-64 h-64 bg-emerald-400/10 rounded-full blur-3xl pointer-events-none"></div>
+
+          <!-- Photograph Frame -->
+          <div class="relative w-full aspect-[4/5] sm:aspect-square md:aspect-[3/4] max-w-lg rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100">
+            <img
+              src="/src/assets/images/happy_children_hero_1782288854468.jpg"
+              alt="Happy children at Kartavyata"
+              class="w-full h-full object-cover"
+            />
+            <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/50 shadow-lg flex items-center justify-between">
+              <div>
+                <span class="block text-xs font-semibold text-slate-500 uppercase tracking-widest leading-none">Active Care Center</span>
+                <span class="text-sm font-bold text-[#0b3c5d]">Sponsoring 1,200+ students daily</span>
+              </div>
+              <div class="bg-emerald-50 p-2 rounded-xl text-emerald-600">
+                <i data-lucide="sparkles" class="w-5 h-5"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PILLARS OF WORK ================= -->
+  <section id="pillars" class="py-24 bg-white border-t border-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-extrabold tracking-[0.2em] text-emerald-700 uppercase block mb-3 font-mono">Pillars of Action</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 font-display">Our Holistic Approach to Child Welfare</h2>
+        <div class="w-16 h-1 bg-orange-500 mx-auto mt-4 rounded-full"></div>
+        <p class="mt-4 text-base sm:text-lg text-slate-500">
+          We operate seamlessly across four core disciplines to nurture complete, well-rounded development.
+        </p>
+      </div>
+
+      <!-- Selector Grid -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mb-16">
+        <!-- Education Button -->
+        <button id="btn-edu" onclick="selectPillar('edu')" class="pillar-selector-btn flex flex-col items-center text-center p-6 rounded-3xl border-2 border-emerald-600 bg-emerald-600 text-white shadow-xl scale-102 transition-all">
+          <div class="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mb-4">
+            <i data-lucide="book-open" class="w-8 h-8"></i>
+          </div>
+          <span class="block font-extrabold text-sm tracking-widest font-display uppercase">EDUCATION</span>
+        </button>
+
+        <!-- Health Button -->
+        <button id="btn-health" onclick="selectPillar('health')" class="pillar-selector-btn flex flex-col items-center text-center p-6 rounded-3xl border-2 border-slate-100 bg-slate-50/50 hover:bg-rose-50 text-slate-700 hover:border-rose-300 hover:text-rose-700 transition-all">
+          <div class="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mb-4">
+            <i data-lucide="heart" class="w-8 h-8"></i>
+          </div>
+          <span class="block font-extrabold text-sm tracking-widest font-display uppercase">HEALTH</span>
+        </button>
+
+        <!-- Protection Button -->
+        <button id="btn-prot" onclick="selectPillar('prot')" class="pillar-selector-btn flex flex-col items-center text-center p-6 rounded-3xl border-2 border-slate-100 bg-slate-50/50 hover:bg-amber-50 text-slate-700 hover:border-amber-300 hover:text-amber-700 transition-all">
+          <div class="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mb-4">
+            <i data-lucide="shield" class="w-8 h-8"></i>
+          </div>
+          <span class="block font-extrabold text-sm tracking-widest font-display uppercase">PROTECTION</span>
+        </button>
+
+        <!-- Empowerment Button -->
+        <button id="btn-emp" onclick="selectPillar('emp')" class="pillar-selector-btn flex flex-col items-center text-center p-6 rounded-3xl border-2 border-slate-100 bg-slate-50/50 hover:bg-sky-50 text-slate-700 hover:border-sky-300 hover:text-sky-700 transition-all">
+          <div class="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mb-4">
+            <i data-lucide="user-check" class="w-8 h-8"></i>
+          </div>
+          <span class="block font-extrabold text-sm tracking-widest font-display uppercase">EMPOWERMENT</span>
+        </button>
+      </div>
+
+      <!-- Detail Card (Interactive Dynamic Content) -->
+      <div class="bg-slate-50 rounded-3xl border border-slate-100 p-6 sm:p-10 lg:p-12 shadow-sm">
+        <div id="pillar-card-content" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <!-- Detailed content dynamically swapped by JS -->
+          <div class="lg:col-span-6 flex flex-col items-start text-left space-y-4">
+            <div id="pillar-badge" class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-extrabold tracking-wider uppercase bg-emerald-100 text-emerald-800">
+              <i data-lucide="book-open" class="w-3.5 h-3.5"></i>
+              <span>Core Pillar: Education</span>
+            </div>
+            <h3 id="pillar-title" class="text-2xl sm:text-3xl font-black text-slate-900 leading-tight font-display">
+              Building minds, shaping futures
+            </h3>
+            <p id="pillar-desc" class="text-base sm:text-lg text-slate-600 leading-relaxed">
+              We establish modern learning facilities, provide comprehensive educational kits, and sponsor school tuition fees to ensure every child gets quality primary and secondary education.
+            </p>
+            <div class="w-full pt-4">
+              <span class="text-xs font-black uppercase text-slate-400 tracking-widest block mb-3">Key Outcomes & Initiatives</span>
+              <ul id="pillar-points" class="space-y-3">
+                <li class="flex items-start gap-3 text-sm sm:text-base font-medium text-slate-700">
+                  <span class="p-0.5 rounded-full bg-emerald-100 text-emerald-700 mt-1"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                  Digital literacy programs with modern tablets & laptops.
+                </li>
+                <li class="flex items-start gap-3 text-sm sm:text-base font-medium text-slate-700">
+                  <span class="p-0.5 rounded-full bg-emerald-100 text-emerald-700 mt-1"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+                  After-school coaching centers in underserved neighborhoods.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Right side Widget Frame -->
+          <div class="lg:col-span-6 w-full">
+            <div class="bg-white rounded-2xl border border-slate-100 shadow-md p-6 sm:p-8 relative overflow-hidden text-left">
+              <div class="absolute top-0 left-0 right-0 h-1.5 bg-emerald-600" id="widget-color-bar"></div>
+              
+              <div class="flex items-center justify-between mb-6 border-b border-slate-100 pb-4">
+                <h3 class="font-bold text-slate-800 flex items-center gap-2">
+                  <span>🛠️</span>
+                  <span id="widget-title">Interactive Curriculum Explorer</span>
+                </h3>
+                <span class="text-[10px] font-bold uppercase font-mono bg-slate-100 text-slate-500 px-2 py-1 rounded">Widget Demo</span>
+              </div>
+
+              <!-- Dynamic Interactive Widget Body -->
+              <div id="widget-body" class="space-y-4">
+                <!-- Swapped in by JS -->
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= IMPACT & SUPPORT (CALCULATOR) ================= -->
+  <section id="impact" class="py-24 bg-slate-900 text-white relative overflow-hidden">
+    <div class="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        
+        <!-- Left Stats -->
+        <div class="lg:col-span-5 text-left space-y-8">
+          <div>
+            <span class="text-xs font-extrabold tracking-[0.2em] text-[#f58220] uppercase block mb-3 font-mono">Real Verified Impact</span>
+            <h2 class="text-3xl sm:text-4xl font-black text-white font-display">Every Donation Directs Absolute Welfare</h2>
+            <div class="w-12 h-1 bg-emerald-500 mt-4 rounded-full"></div>
+          </div>
+          <p class="text-slate-400 text-base leading-relaxed">
+            Kartavyata operates with a <strong>100% transparency promise</strong>. Every dollar contributed directly supports purchasing school supplies, cooking nutritional lunches, and operating clinics.
+          </p>
+
+          <div class="grid grid-cols-2 gap-6 pt-4">
+            <div class="bg-slate-800/50 p-5 rounded-2xl border border-slate-700/50">
+              <span class="block text-3xl font-black text-emerald-400 font-display">15.4K+</span>
+              <span class="block text-xs font-bold uppercase text-slate-400 tracking-wider mt-1">Children Nurtured</span>
+            </div>
+            <div class="bg-slate-800/50 p-5 rounded-2xl border border-slate-700/50">
+              <span class="block text-3xl font-black text-emerald-400 font-display">120+</span>
+              <span class="block text-xs font-bold uppercase text-slate-400 tracking-wider mt-1">Health Camps</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Calculator Right -->
+        <div class="lg:col-span-7">
+          <div class="bg-slate-800 border border-slate-700/50 rounded-3xl p-6 sm:p-10 shadow-2xl relative text-left">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-emerald-500"></div>
+            
+            <div class="flex items-center gap-3 mb-6">
+              <div class="p-2.5 bg-emerald-500/10 text-emerald-400 rounded-xl">
+                <i data-lucide="coins" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h3 class="font-bold text-lg text-white font-display">Interactive Support Calculator</h3>
+                <p class="text-xs text-slate-400">See the conversion of your support</p>
+              </div>
+            </div>
+
+            <!-- Presets -->
+            <div class="space-y-3">
+              <label class="text-xs font-bold uppercase tracking-wider text-slate-400 block">Select Donation Amount</label>
+              <div class="grid grid-cols-4 gap-3">
+                <button onclick="setDonation(15)" class="donation-btn py-3.5 rounded-xl border border-slate-700 bg-slate-900 text-slate-300 font-black text-center">
+                  $15
+                </button>
+                <button onclick="setDonation(30)" class="donation-btn py-3.5 rounded-xl border border-emerald-500 bg-emerald-600 text-white font-black text-center shadow-lg">
+                  $30
+                </button>
+                <button onclick="setDonation(75)" class="donation-btn py-3.5 rounded-xl border border-slate-700 bg-slate-900 text-slate-300 font-black text-center">
+                  $75
+                </button>
+                <button onclick="setDonation(150)" class="donation-btn py-3.5 rounded-xl border border-slate-700 bg-slate-900 text-slate-300 font-black text-center">
+                  $150
+                </button>
+              </div>
+            </div>
+
+            <!-- Custom Input -->
+            <div class="mt-5 space-y-2">
+              <label class="text-xs font-bold uppercase tracking-wider text-slate-400 block">Or Custom Amount ($ USD)</label>
+              <div class="relative">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold">$</span>
+                <input
+                  type="number"
+                  id="custom-amount-input"
+                  min="5"
+                  max="10000"
+                  placeholder="Enter custom amount..."
+                  oninput="handleCustomAmount(this.value)"
+                  class="w-full bg-slate-900 border border-slate-700 focus:border-emerald-500 rounded-xl py-3.5 pl-8 pr-4 text-sm text-white font-medium outline-none"
+                />
+              </div>
+            </div>
+
+            <!-- Dynamic Equivalence Box -->
+            <div class="mt-8 bg-slate-900/60 rounded-2xl p-5 border border-slate-700/40 space-y-4">
+              <span class="text-xs font-bold text-emerald-400 uppercase tracking-widest block font-mono">★ Instant Impact Equivalence:</span>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="flex items-center gap-3 bg-slate-900/40 p-3 rounded-xl border border-slate-800">
+                  <span class="text-2xl">🍎</span>
+                  <div>
+                    <span id="calc-meals" class="block text-lg font-black text-white">20 Meals</span>
+                    <span class="text-[10px] text-slate-400 uppercase">Protein Lunches</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-900/40 p-3 rounded-xl border border-slate-800">
+                  <span class="text-2xl">🎒</span>
+                  <div>
+                    <span id="calc-kits" class="block text-lg font-black text-white">1 Child</span>
+                    <span class="text-[10px] text-slate-400 uppercase">School Kit</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-3 bg-slate-900/40 p-3 rounded-xl border border-slate-800">
+                  <span class="text-2xl">🩺</span>
+                  <div>
+                    <span id="calc-healthcare" class="block text-lg font-black text-white">1 Patient</span>
+                    <span class="text-[10px] text-slate-400 uppercase">Pediatric Doctor</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button onclick="openDonationModal()" class="w-full mt-6 py-4 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-base rounded-2xl shadow-lg flex items-center justify-center gap-2">
+              <i data-lucide="heart" class="w-5 h-5"></i>
+              <span>Donate <span id="donate-btn-label">$30</span> Securely</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= GET INVOLVED (VOLUNTEERS & GALLERY) ================= -->
+  <section id="get-involved" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-24">
+        
+        <!-- Left: Roles -->
+        <div class="lg:col-span-6 text-left space-y-6">
+          <div>
+            <span class="text-xs font-extrabold tracking-[0.2em] text-emerald-700 uppercase block mb-3 font-mono">Join Our Family</span>
+            <h2 class="text-3xl sm:text-4xl font-black text-slate-900 font-display">Become a Field Volunteer</h2>
+            <div class="w-12 h-1 bg-orange-500 mt-4 rounded-full"></div>
+          </div>
+          <p class="text-slate-600 text-sm sm:text-base leading-relaxed">
+            Browse our open roles below to match your unique professional or creative expertise:
+          </p>
+
+          <!-- Buttons selector -->
+          <div class="space-y-3">
+            <button onclick="selectVolRole(0)" id="role-btn-0" class="role-selector-btn w-full text-left p-5 rounded-2xl border border-emerald-400 bg-emerald-50/50 text-emerald-950 shadow-sm flex items-start gap-4">
+              <div class="p-2.5 rounded-xl bg-emerald-600 text-white">
+                <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="block font-black text-sm font-display">Academic Mentor</span>
+                <p class="text-xs text-slate-500 mt-1">Help children master mathematics or basic sciences.</p>
+              </div>
+            </button>
+
+            <button onclick="selectVolRole(1)" id="role-btn-1" class="role-selector-btn w-full text-left p-5 rounded-2xl border border-slate-100 bg-slate-50/50 hover:bg-slate-100 flex items-start gap-4">
+              <div class="p-2.5 rounded-xl bg-white text-emerald-700 border border-slate-100">
+                <i data-lucide="syringe" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="block font-black text-sm font-display">Health Camp Assistant</span>
+                <p class="text-xs text-slate-500 mt-1">Participate in logistics, checkups, and check logs.</p>
+              </div>
+            </button>
+
+            <button onclick="selectVolRole(2)" id="role-btn-2" class="role-selector-btn w-full text-left p-5 rounded-2xl border border-slate-100 bg-slate-50/50 hover:bg-slate-100 flex items-start gap-4">
+              <div class="p-2.5 rounded-xl bg-white text-emerald-700 border border-slate-100">
+                <i data-lucide="paintbrush" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <span class="block font-black text-sm font-display">Creative Workshop Lead</span>
+                <p class="text-xs text-slate-500 mt-1">Teach painting, music, crafts or storytelling.</p>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Registration Form -->
+        <div class="lg:col-span-6 w-full">
+          <div class="bg-white rounded-3xl border border-slate-100 p-6 sm:p-10 shadow-lg text-left relative overflow-hidden">
+            <div class="absolute top-0 left-0 right-0 h-1.5 bg-orange-500"></div>
+
+            <form id="volunteer-form" onsubmit="submitVolunteer(event)" class="space-y-5">
+              <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+                <div class="p-2.5 bg-orange-50 text-orange-600 rounded-xl">
+                  <i data-lucide="heart-handshake" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h3 class="font-extrabold text-base text-slate-800">Volunteer Application</h3>
+                  <p class="text-xs text-slate-500">Registering for: <strong class="text-emerald-700" id="current-form-role">Academic Mentor</strong></p>
+                </div>
+              </div>
+
+              <div class="space-y-1">
+                <label class="text-[10px] font-black text-slate-500 uppercase">Your Full Name</label>
+                <input type="text" required placeholder="e.g. Rahul Sharma" id="vol-name" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none" />
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="space-y-1">
+                  <label class="text-[10px] font-black text-slate-500">Email Address</label>
+                  <input type="email" required placeholder="e.g. rahul@example.com" id="vol-email" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none" />
+                </div>
+                <div class="space-y-1">
+                  <label class="text-[10px] font-black text-slate-500">Phone Number</label>
+                  <input type="tel" required placeholder="e.g. +91 98765 43210" id="vol-phone" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none" />
+                </div>
+              </div>
+
+              <div class="space-y-1">
+                <label class="text-[10px] font-black text-slate-500 block" id="form-note-label">Tutoring Experience or Favorite Subjects</label>
+                <textarea rows="3" required placeholder="Describe your background or interest..." id="vol-note" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none"></textarea>
+              </div>
+
+              <button type="submit" class="w-full py-4 bg-orange-500 hover:bg-orange-600 text-white font-extrabold text-sm rounded-xl transition-all shadow-md">
+                <span>Submit Volunteer Registration</span>
+              </button>
+            </form>
+
+            <div id="vol-success" class="hidden py-8 text-center space-y-5">
+              <div class="w-16 h-16 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto">👋</div>
+              <h3 class="font-extrabold text-xl text-slate-800">Application Submitted!</h3>
+              <p class="text-xs text-slate-500 max-w-sm mx-auto">
+                Thank you for offering your skills to support children! Check your inbox for our volunteer handbook.
+              </p>
+              <button onclick="resetVolForm()" class="px-6 py-2.5 bg-slate-800 text-white font-bold rounded-xl text-xs">Register for Another Role</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- GALLERY CONTROLLER -->
+      <div id="gallery" class="border-t border-slate-100 pt-24 text-left">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div>
+            <span class="text-xs font-extrabold tracking-[0.2em] text-emerald-700 uppercase block mb-3 font-mono">Visualizing Progress</span>
+            <h2 class="text-3xl font-black text-slate-900 font-display">Our Community Action Log</h2>
+            <div class="w-12 h-1 bg-emerald-500 mt-4 rounded-full"></div>
+          </div>
+
+          <!-- Filters -->
+          <div class="flex flex-wrap gap-2 mt-6 md:mt-0">
+            <button onclick="filterGallery('All')" class="gallery-filter-btn px-4 py-2 rounded-full text-xs font-bold bg-emerald-700 text-white shadow">All</button>
+            <button onclick="filterGallery('Education')" class="gallery-filter-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-50 text-slate-600 border border-slate-100">Education</button>
+            <button onclick="filterGallery('Health')" class="gallery-filter-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-50 text-slate-600 border border-slate-100">Health</button>
+            <button onclick="filterGallery('Protection')" class="gallery-filter-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-50 text-slate-600 border border-slate-100">Protection</button>
+          </div>
+        </div>
+
+        <!-- Grid -->
+        <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="relative bg-[#022135] text-white pt-24 pb-12 overflow-hidden">
+    <!-- Wave Border Separator -->
+    <div class="absolute top-0 left-0 right-0 pointer-events-none -translate-y-1">
+      <svg viewBox="0 0 1440 60" fill="none" class="w-full h-auto">
+        <path d="M0,45 C240,15 480,15 720,30 C960,45 1200,45 1440,25 L1440,0 L0,0 Z" fill="#ffffff" />
       </svg>
+    </div>
 
-      <div class="photo-caption">Children of our Delhi learning centre</div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Statutory value row -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-16 border-b border-white/10">
+        <div class="flex items-center gap-4 text-left">
+          <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-full border border-emerald-500/20 flex items-center justify-center shrink-0">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="block font-black text-sm text-white font-display">Holistic Development</span>
+            <span class="text-xs text-slate-400">Of underprivileged children</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 text-left">
+          <div class="w-12 h-12 bg-orange-500/10 text-orange-400 rounded-full border border-orange-500/20 flex items-center justify-center shrink-0">
+            <i data-lucide="users" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="block font-black text-sm text-white font-display">Community Partnership</span>
+            <span class="text-xs text-slate-400">To create lasting circles</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 text-left">
+          <div class="w-12 h-12 bg-sky-500/10 text-sky-400 rounded-full border border-sky-500/20 flex items-center justify-center shrink-0">
+            <i data-lucide="shield-alert" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="block font-black text-sm text-white font-display">Transparent & Accountable</span>
+            <span class="text-xs text-slate-400">Audited 100% allocation</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 text-left">
+          <div class="w-12 h-12 bg-yellow-500/10 text-yellow-400 rounded-full border border-yellow-500/20 flex items-center justify-center shrink-0">
+            <i data-lucide="star" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="block font-black text-sm text-white font-display">Sustainable Impact</span>
+            <span class="text-xs text-slate-400">Empowering tomorrow's leaders</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slogans & Inquiries -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 py-16 text-left">
+        <div class="lg:col-span-4 space-y-6">
+          <div class="flex flex-col">
+            <span class="text-xl font-extrabold tracking-tight text-white font-display">Kartavyata</span>
+            <span class="text-[10px] font-semibold tracking-widest text-orange-400 uppercase font-mono mt-0.5">|| कर्तव्यता ||</span>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Kartavyata is committed to unlocking the potential of children from marginalized backgrounds, providing nutritional care, legal protection, and comprehensive primary curriculum resources.
+          </p>
+          <div class="pt-3 border-t border-white/5">
+            <span class="block text-emerald-400 font-serif text-lg italic tracking-wide">"Every Child. Every Right. Every Chance."</span>
+          </div>
+        </div>
+
+        <div class="lg:col-span-3 space-y-4 text-xs text-slate-400">
+          <h4 class="text-xs font-black uppercase text-slate-300 tracking-widest font-display">Headquarters Office</h4>
+          <p>Building 4, Sector 7, Child Welfare Precinct, New Delhi, 110001, India</p>
+          <p>+91 11 4050 9900</p>
+          <p>care@kartavyata.org.in</p>
+        </div>
+
+        <!-- Feedback Panel -->
+        <div class="lg:col-span-5 space-y-4">
+          <h4 class="text-xs font-black uppercase text-slate-300 tracking-widest font-display">Quick Inquiry & Suggestions</h4>
+          <form id="inquiry-form" onsubmit="submitInquiry(event)" class="space-y-2">
+            <input type="email" required placeholder="Your email address" id="inq-email" class="w-full bg-[#032e49] border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white outline-none" />
+            <textarea rows="3" required placeholder="What assistance do you need?" id="inq-msg" class="w-full bg-[#032e49] border border-slate-700 rounded-xl px-4 py-2.5 text-xs text-white outline-none"></textarea>
+            <button type="submit" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 cursor-pointer">
+              <span>Transmit Inquiry Message</span>
+            </button>
+          </form>
+          <div id="inq-success" class="hidden text-emerald-400 font-bold text-xs text-center">✓ Message logged securely. Our support desk will reply.</div>
+        </div>
+      </div>
+
+      <div class="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <span>© 2026 Kartavyata Foundation. Registered Indian NGO and Section 80G entity.</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= SECURE SSL CHECKOUT MODAL ================= -->
+  <div id="donation-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-slate-950/80 backdrop-blur-sm" onclick="closeDonationModal()"></div>
+    <div class="bg-white text-slate-900 w-full max-w-lg rounded-3xl overflow-hidden shadow-2xl relative z-10 border border-slate-100 text-left">
+      <button onclick="closeDonationModal()" class="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-600 rounded-full hover:bg-slate-50 transition-all">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Step 1: Form -->
+      <form id="checkout-form" onsubmit="submitPayment(event)" class="p-6 sm:p-8 space-y-5">
+        <div class="flex items-center gap-3 border-b border-slate-100 pb-4">
+          <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg">🛡️</div>
+          <div>
+            <h3 class="font-extrabold text-lg text-[#0b3c5d] font-display">Secure SSL Donation Gateway</h3>
+            <p class="text-xs text-slate-500">128-bit Encrypted Transaction</p>
+          </div>
+        </div>
+
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-100 flex items-center justify-between">
+          <div>
+            <span class="text-[10px] uppercase font-bold text-slate-400">Total Contribution</span>
+            <span class="block font-black text-slate-800 text-xl" id="modal-amount-display">$30 USD</span>
+          </div>
+          <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-100">Tax Deductible Gift</span>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-xs font-black uppercase text-slate-400 tracking-wider">1. Contact Information</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <input type="text" id="donor-name" required placeholder="Full Name" class="w-full bg-slate-50 border border-slate-200 px-3.5 py-2.5 rounded-xl text-sm outline-none" />
+            <input type="email" id="donor-email" required placeholder="Email Address" class="w-full bg-slate-50 border border-slate-200 px-3.5 py-2.5 rounded-xl text-sm outline-none" />
+          </div>
+        </div>
+
+        <div class="space-y-3">
+          <h4 class="text-xs font-black uppercase text-slate-400 tracking-wider">2. Card Information</h4>
+          <div class="p-4 rounded-xl bg-slate-50/50 border border-slate-100 space-y-3">
+            <input type="text" required placeholder="Card Number (4111 ...)" class="w-full bg-white border border-slate-200 px-3.5 py-2.5 rounded-xl text-sm outline-none" />
+            <div class="grid grid-cols-2 gap-3">
+              <input type="text" required placeholder="MM/YY" class="w-full bg-white border border-slate-200 px-3.5 py-2.5 rounded-xl text-sm outline-none" />
+              <input type="text" required placeholder="CVV" class="w-full bg-white border border-slate-200 px-3.5 py-2.5 rounded-xl text-sm outline-none" />
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="w-full py-4 bg-emerald-700 hover:bg-emerald-800 text-white font-extrabold rounded-2xl shadow-md transition-all">
+          <span>Authorise Secure Payment</span>
+        </button>
+      </form>
+
+      <!-- Step 2: Success Celebration -->
+      <div id="payment-success" class="hidden p-8 text-center space-y-6">
+        <div class="w-20 h-20 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center text-4xl mx-auto shadow-inner">🎉</div>
+        <h3 class="font-extrabold text-2xl text-[#0b3c5d] font-display">A Heartfelt Thank You!</h3>
+        <p class="text-sm text-slate-600 max-w-sm mx-auto">Your generous contribution has been successfully completed. An official tax-receipt has been sent to your email.</p>
+        <button onclick="closeDonationModal()" class="px-8 py-3 bg-slate-800 text-white font-bold rounded-xl text-sm shadow-md">Return to Platform</button>
+      </div>
     </div>
   </div>
 
-  <!-- wave divider, echoing the reference's green/yellow + navy waves -->
-  <div class="wave-divider">
-    <svg viewBox="0 0 1440 110" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0,40 C220,100 420,0 680,55 C940,108 1180,10 1440,60 L1440,110 L0,110 Z" fill="#3E8E41" opacity="0.85"/>
-      <path d="M0,70 C260,20 520,100 780,55 C1040,12 1260,90 1440,45 L1440,110 L0,110 Z" fill="#F2C94C" opacity="0.55"/>
-      <path d="M520,90 C760,30 1020,95 1440,40 L1440,110 L520,110 Z" fill="#0E3258"/>
-    </svg>
-  </div>
-</section>
+  <!-- ================= INTERACTION ENGINE (JAVASCRIPT) ================= -->
+  <script>
+    // Initialize Lucide icons on document load
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+      selectPillar('edu');
+      filterGallery('All');
+    });
 
-<section class="trust-strip">
-  <div class="wrap trust-row">
-    <div class="trust-items">
-      <div class="trust-item">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#3E8E41" stroke-width="1.8"><path d="M12 21s-1-5-6-7c-1-3 1-7 4-8 1 3 2 6 2 6s0-4 3-7c3 1 5 5 4 8-5 2-6 7-6 7Z"/></svg>
-        <span class="txt">Holistic Development<br>of Children</span>
-      </div>
-      <div class="trust-sep"></div>
-      <div class="trust-item">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#F2922E" stroke-width="1.8"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.4"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15 14.2c2.4.3 4 2 4 5.8"/></svg>
-        <span class="txt">Community<br>Partnership</span>
-      </div>
-      <div class="trust-sep"></div>
-      <div class="trust-item">
-        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="#1B4D7A" stroke-width="1.8"><path d="M2 12h5l3-4 4 8 3-4h5"/><path d="M9 18l-3 -2-3 2M21 18l-3-2-3 2" opacity="0"/></svg>
-        <span class="txt">Transparent<br>&amp; Accountable</span>
-      </div>
-      <div class="trust-sep"></div>
-      <div class="trust-item">
-        <svg class="ic" viewBox="0 0 24 24" fill="#F2922E" stroke="none"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.6l-6.1 3 1.4-6.8L2.2 9.1l6.9-.8L12 2Z"/></svg>
-        <span class="txt">Sustainable<br>Impact</span>
-      </div>
-    </div>
+    // 1. Navigation Menus
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
 
-    <div class="trust-tagline script">
-      Every Child. Every Right. Every Chance.
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg>
-    </div>
-  </div>
-</section>
+    // 2. Pillars Switching Engine
+    const PILLAR_DATA = {
+      edu: {
+        title: "EDUCATION",
+        tagline: "Building minds, shaping futures",
+        desc: "We establish modern learning facilities, provide comprehensive educational kits, and sponsor school tuition fees to ensure every child gets quality primary and secondary education.",
+        points: ["Digital literacy programs with tablets & laptops", "After-school coaching centers in underserved neighborhoods", "Scholarships for higher secondary & vocational training"],
+        icon: "book-open",
+        colorClass: "emerald",
+        badgeBg: "bg-emerald-100 text-emerald-800",
+        btnColor: "bg-emerald-600 border-emerald-600 text-white",
+        widgetTitle: "Interactive Curriculum Quiz",
+        widgetHtml: `
+          <div class="space-y-3" id="edu-quiz-container">
+            <h4 class="font-bold text-slate-800 text-sm">Studies show interactive visuals increase visual cognitive retention by how much?</h4>
+            <div class="space-y-2">
+              <button onclick="answerQuiz(true)" class="w-full text-left p-3 rounded-xl border border-slate-100 hover:bg-slate-50 text-xs">200% Faster (Double)</button>
+              <button onclick="answerQuiz(false)" class="w-full text-left p-3 rounded-xl border border-slate-100 hover:bg-slate-50 text-xs">10% Faster</button>
+            </div>
+            <p id="edu-feedback" class="hidden text-xs bg-emerald-50 text-emerald-900 border border-emerald-100 p-3 rounded-xl font-medium">✓ Correct! Visual spatial tools stimulate deeper retention, accelerating mathematics and languages twice as fast.</p>
+          </div>
+        `
+      },
+      health: {
+        title: "HEALTH",
+        tagline: "Healthy children, brighter tomorrows",
+        desc: "We organize quarterly medical camps, distribute healthy nutritional supplements, and supply critical hygiene kits to ensure optimal physical development.",
+        points: ["Free medical & dental checkups with expert pediatricians", "Daily hot mid-day meal programs high in proteins & vitamins", "Mental health counseling & emotional support circles"],
+        icon: "heart",
+        colorClass: "rose",
+        badgeBg: "bg-rose-100 text-rose-800",
+        btnColor: "bg-rose-600 border-rose-600 text-white",
+        widgetTitle: "Nutrition & Growth Calculator",
+        widgetHtml: `
+          <div class="space-y-3">
+            <p class="text-xs text-slate-500 font-medium">Enter details to simulate growth diagnostics logged during medical camps:</p>
+            <div class="grid grid-cols-2 gap-2">
+              <input type="number" id="calc-age" placeholder="Age (e.g., 6)" class="border rounded-lg px-2 py-1.5 text-xs outline-none" />
+              <input type="number" id="calc-weight" placeholder="Weight (kg)" class="border rounded-lg px-2 py-1.5 text-xs outline-none" />
+            </div>
+            <button onclick="runNutritionCheck()" class="w-full py-2 bg-rose-600 text-white font-bold text-xs rounded-xl">Assess Nutritional Status</button>
+            <div id="health-feedback" class="hidden text-xs bg-rose-50 border border-rose-100 text-rose-900 p-3 rounded-xl"></div>
+          </div>
+        `
+      },
+      prot: {
+        title: "PROTECTION",
+        tagline: "Safe childhoods, stronger lives",
+        desc: "We build awareness on child abuse, run anti-trafficking networks, and provide secure safe-houses for neglected and runaway children.",
+        points: ["Child protection helpdesk lines running 24/7", "Legal advocacy & rescue operations for child laborers", "Emergency shelter and safe foster care environments"],
+        icon: "shield",
+        colorClass: "amber",
+        badgeBg: "bg-amber-100 text-amber-800",
+        btnColor: "bg-amber-600 border-amber-600 text-white",
+        widgetTitle: "Action Plan: Child labor spotted",
+        widgetHtml: `
+          <div class="space-y-3 text-xs">
+            <p class="text-slate-500 font-medium">Click to inspect active protective response frameworks:</p>
+            <div class="space-y-1.5">
+              <div class="flex gap-2 font-medium"><span class="text-amber-600 font-bold">1.</span> Call Kartavyata Protection Desk.</div>
+              <div class="flex gap-2 font-medium"><span class="text-amber-600 font-bold">2.</span> Alert Block Child Welfare Committee.</div>
+              <div class="flex gap-2 font-medium"><span class="text-amber-600 font-bold">3.</span> Legal rehabilitation & school enrollment.</div>
+            </div>
+            <div class="bg-amber-50 text-amber-900 p-2.5 rounded border border-amber-100">Our protective networks have successfully rescued and enrolled 140+ child laborers.</div>
+          </div>
+        `
+      },
+      emp: {
+        title: "EMPOWERMENT",
+        tagline: "Building confidence, creating leaders",
+        desc: "We run youth leadership groups, public speaking seminars, and vocational workshops to equip older adolescents with self-confidence.",
+        points: ["Interactive public speaking & debate tournaments", "Vocational training in photography, design, and computing", "Girls’ self-defense courses and confidence coaching"],
+        icon: "user-check",
+        colorClass: "sky",
+        badgeBg: "bg-sky-100 text-sky-800",
+        btnColor: "bg-sky-600 border-sky-600 text-white",
+        widgetTitle: "Empowerment Mentor Matchmaker",
+        widgetHtml: `
+          <div class="space-y-3">
+            <p class="text-xs text-slate-500">Pick a focus segment to matching standard mentors:</p>
+            <div class="grid grid-cols-2 gap-2">
+              <button onclick="matchMentor('Arts')" class="p-2 border rounded-xl hover:bg-sky-50 text-xs font-bold">🎨 Art & Murals</button>
+              <button onclick="matchMentor('Debate')" class="p-2 border rounded-xl hover:bg-sky-50 text-xs font-bold">🗣️ Public Debate</button>
+            </div>
+            <div id="mentor-feedback" class="hidden text-xs bg-sky-50 border border-sky-100 p-3 rounded-xl text-sky-900 font-medium"></div>
+          </div>
+        `
+      }
+    };
 
+    function selectPillar(key) {
+      // Remove all active styling
+      document.querySelectorAll('.pillar-selector-btn').forEach(btn => {
+        btn.className = "pillar-selector-btn flex flex-col items-center text-center p-6 rounded-3xl border-2 border-slate-100 bg-slate-50/50 text-slate-700 transition-all hover:bg-slate-100";
+        const iconDiv = btn.querySelector('div');
+        iconDiv.className = "w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center mb-4";
+      });
+
+      // Apply styling to selected
+      const selectedBtn = document.getElementById(`btn-${key}`);
+      const color = PILLAR_DATA[key].colorClass;
+      selectedBtn.className = `pillar-selector-btn flex flex-col items-center text-center p-6 rounded-3xl border-2 border-${color}-600 bg-${color}-600 text-white shadow-xl scale-102 transition-all`;
+      selectedBtn.querySelector('div').className = "w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mb-4";
+
+      // Render details
+      const item = PILLAR_DATA[key];
+      document.getElementById('pillar-badge').className = `inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-extrabold tracking-wider uppercase ${item.badgeBg}`;
+      document.getElementById('pillar-badge').innerHTML = `<i data-lucide="${item.icon}" class="w-3.5 h-3.5"></i><span>Core Pillar: ${item.title}</span>`;
+      document.getElementById('pillar-title').innerText = item.tagline;
+      document.getElementById('pillar-desc').innerText = item.desc;
+      
+      const pointsHtml = item.points.map(pt => `
+        <li class="flex items-start gap-3 text-sm sm:text-base font-medium text-slate-700">
+          <span class="p-0.5 rounded-full ${item.badgeBg} mt-1"><i data-lucide="check" class="w-3.5 h-3.5"></i></span>
+          ${pt}
+        </li>
+      `).join('');
+      document.getElementById('pillar-points').innerHTML = pointsHtml;
+
+      // Update widget
+      document.getElementById('widget-color-bar').className = `absolute top-0 left-0 right-0 h-1.5 bg-${color}-600`;
+      document.getElementById('widget-title').innerText = item.widgetTitle;
+      document.getElementById('widget-body').innerHTML = item.widgetHtml;
+
+      lucide.createIcons();
+    }
+
+    // Interactive Widget Controllers
+    function answerQuiz(isCorrect) {
+      const feedback = document.getElementById('edu-feedback');
+      feedback.classList.remove('hidden');
+      if (isCorrect) {
+        feedback.className = "text-xs bg-emerald-50 text-emerald-900 border border-emerald-100 p-3 rounded-xl font-medium";
+        feedback.innerText = "✓ Correct! Visual spatial tools stimulate deeper neurological mappings, allowing children from rural backgrounds to master mathematics twice as fast.";
+      } else {
+        feedback.className = "text-xs bg-rose-50 text-rose-900 border border-rose-100 p-3 rounded-xl font-medium";
+        feedback.innerText = "✗ Incorrect. Correct answer is 200% faster (Double retention efficacy). Try again!";
+      }
+    }
+
+    function runNutritionCheck() {
+      const age = parseInt(document.getElementById('calc-age').value) || 6;
+      const weight = parseInt(document.getElementById('calc-weight').value) || 15;
+      const feedback = document.getElementById('health-feedback');
+      feedback.classList.remove('hidden');
+
+      const expectedWeight = age * 2 + 8;
+      if (weight < expectedWeight - 3) {
+        feedback.innerHTML = `
+          <strong class="block text-rose-900">⚠️ Risk Identified: Underweight</strong>
+          <p class="mt-1">Expected weight for ${age} yrs is ~${expectedWeight}kg. Enrolling child in <strong>"Super-Nutri Meals"</strong> program for protein cookies & lunches.</p>
+        `;
+      } else {
+        feedback.innerHTML = `
+          <strong class="block text-emerald-900">✓ Healthy Status</strong>
+          <p class="mt-1">Expected weight for ${age} yrs is ~${expectedWeight}kg. Keep providing normal micro-supplements and clean drinking water.</p>
+        `;
+      }
+    }
+
+    function matchMentor(category) {
+      const feedback = document.getElementById('mentor-feedback');
+      feedback.classList.remove('hidden');
+      if (category === 'Arts') {
+        feedback.innerHTML = `<strong>Meera Sen</strong> (Muralist)<br/>Enrolled in <em>"Socio-Emotional Canvas Healing"</em> workshop.`;
+      } else {
+        feedback.innerHTML = `<strong>Rohit Deshmukh</strong> (Debater)<br/>Enrolled in <em>"Youth Parliament Debate Circle"</em>.`;
+      }
+    }
+
+    // 3. Donation Calculator
+    let selectedAmount = 30;
+    function setDonation(amount) {
+      selectedAmount = amount;
+      document.getElementById('custom-amount-input').value = '';
+      
+      // Toggle button highlighting
+      document.querySelectorAll('.donation-btn').forEach(btn => {
+        if (btn.innerText.includes('$' + amount)) {
+          btn.className = "donation-btn py-3.5 rounded-xl border border-emerald-500 bg-emerald-600 text-white font-black text-center shadow-lg";
+        } else {
+          btn.className = "donation-btn py-3.5 rounded-xl border border-slate-700 bg-slate-900 text-slate-300 font-black text-center hover:bg-slate-950";
+        }
+      });
+
+      recalculateImpact(amount);
+    }
+
+    function handleCustomAmount(val) {
+      const amount = parseFloat(val) || 0;
+      selectedAmount = amount;
+      
+      // Clear preset selection styles
+      document.querySelectorAll('.donation-btn').forEach(btn => {
+        btn.className = "donation-btn py-3.5 rounded-xl border border-slate-700 bg-slate-900 text-slate-300 font-black text-center hover:bg-slate-950";
+      });
+
+      recalculateImpact(amount);
+    }
+
+    function recalculateImpact(amount) {
+      const meals = Math.floor(amount / 1.5);
+      const kits = Math.floor(amount / 30);
+      const healthcare = Math.floor(amount / 25);
+
+      document.getElementById('calc-meals').innerText = `${meals} Meals`;
+      document.getElementById('calc-kits').innerText = `${kits} Child`;
+      document.getElementById('calc-healthcare').innerText = `${healthcare} Patient`;
+      document.getElementById('donate-btn-label').innerText = `$${amount}`;
+    }
+
+    // 4. Secure Payment Modal
+    function openDonationModal() {
+      document.getElementById('modal-amount-display').innerText = `$${selectedAmount} USD`;
+      document.getElementById('donation-modal').classList.remove('hidden');
+    }
+
+    function closeDonationModal() {
+      document.getElementById('donation-modal').classList.add('hidden');
+      document.getElementById('checkout-form').classList.remove('hidden');
+      document.getElementById('payment-success').classList.add('hidden');
+    }
+
+    function submitPayment(e) {
+      e.preventDefault();
+      document.getElementById('checkout-form').classList.add('hidden');
+      document.getElementById('payment-success').classList.remove('hidden');
+    }
+
+    // 5. Volunteer Roles switching
+    const VOL_FORM_ROLES = [
+      { name: "Academic Mentor", label: "Tutoring Experience or Favorite Subjects" },
+      { name: "Health Camp Assistant", label: "Hygienic/Nutritional/Medical Background" },
+      { name: "Creative Workshop Lead", label: "Creative Talents (Music, Painting, Drama)" }
+    ];
+
+    function selectVolRole(index) {
+      document.querySelectorAll('.role-selector-btn').forEach(btn => {
+        btn.className = "role-selector-btn w-full text-left p-5 rounded-2xl border border-slate-100 bg-slate-50/50 text-slate-700 transition-all hover:bg-slate-100";
+        btn.querySelector('div').className = "p-2.5 rounded-xl bg-white text-emerald-700 border border-slate-100";
+      });
+
+      const activeBtn = document.getElementById(`role-btn-${index}`);
+      activeBtn.className = "role-selector-btn w-full text-left p-5 rounded-2xl border border-emerald-400 bg-emerald-50/50 text-emerald-950 shadow-sm flex items-start gap-4";
+      activeBtn.querySelector('div').className = "p-2.5 rounded-xl bg-emerald-600 text-white";
+
+      const info = VOL_FORM_ROLES[index];
+      document.getElementById('current-form-role').innerText = info.name;
+      document.getElementById('form-note-label').innerText = info.label;
+    }
+
+    function submitVolunteer(e) {
+      e.preventDefault();
+      document.getElementById('volunteer-form').classList.add('hidden');
+      document.getElementById('vol-success').classList.remove('hidden');
+    }
+
+    function resetVolForm() {
+      document.getElementById('volunteer-form').classList.remove('hidden');
+      document.getElementById('vol-success').classList.add('hidden');
+      document.getElementById('volunteer-form').reset();
+    }
+
+    // 6. Gallery filtering
+    const GALLERY_DATA = [
+      { id: 1, title: 'Annual Education Drive', category: 'Education', imageUrl: 'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80', description: 'Over 500 backpacks packed with school uniforms, school bags and notebooks distributed.' },
+      { id: 2, title: 'Vitamins & Hygiene Camp', category: 'Health', imageUrl: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80', description: 'Local pediatricians offered medical diagnosis checkups and handed vitamin bottles.' },
+      { id: 3, title: 'Self-Defense Workshop for Girls', category: 'Protection', imageUrl: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80', description: 'Coaches taught protective situational awareness and tactical defense courses.' },
+      { id: 4, title: 'Youth Environment Assembly', category: 'Community', imageUrl: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80', description: 'Children cohorts led a tree plantation campaign planting 200 saplings.' }
+    ];
+
+    function filterGallery(category) {
+      // Toggle button highlights
+      document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
+        if (btn.innerText === category) {
+          btn.className = "gallery-filter-btn px-4 py-2 rounded-full text-xs font-bold bg-emerald-700 text-white shadow";
+        } else {
+          btn.className = "gallery-filter-btn px-4 py-2 rounded-full text-xs font-bold bg-slate-50 text-slate-600 border border-slate-100 hover:bg-slate-100";
+        }
+      });
+
+      const filtered = category === 'All' ? GALLERY_DATA : GALLERY_DATA.filter(item => item.category === category);
+      
+      const grid = document.getElementById('gallery-grid');
+      grid.innerHTML = filtered.map(item => `
+        <div class="bg-slate-50 rounded-2xl border border-slate-100/50 overflow-hidden shadow-sm group hover:shadow-md transition-all duration-300">
+          <div class="aspect-[4/3] w-full overflow-hidden bg-slate-200 relative">
+            <img src="${item.imageUrl}" alt="${item.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
+            <div class="absolute top-3 left-3 bg-white/90 backdrop-blur-sm text-[9px] font-black tracking-widest uppercase text-[#0b3c5d] px-2.5 py-1 rounded-full border shadow-sm">${item.category}</div>
+          </div>
+          <div class="p-5">
+            <h4 class="font-extrabold text-sm text-slate-900 leading-tight group-hover:text-emerald-700 transition-colors font-display">${item.title}</h4>
+            <p class="text-xs text-slate-500 mt-2 leading-relaxed">${item.description}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // 7. General Inquiry Submission
+    function submitInquiry(e) {
+      e.preventDefault();
+      document.getElementById('inquiry-form').reset();
+      const inqSuccess = document.getElementById('inq-success');
+      inqSuccess.classList.remove('hidden');
+      setTimeout(() => inqSuccess.classList.add('hidden'), 4000);
+    }
+  </script>
 </body>
 </html>
