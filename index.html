@@ -36,28 +36,9 @@
   .nav-row{display:flex;align-items:center;justify-content:space-between;padding:26px 0 18px;gap:24px;}
 
   .brand{display:flex;flex-direction:column;}
-  .brand-mark{display:flex;align-items:center;gap:10px;}
-  .brand-mark .feather-wrap{width:58px;flex-shrink:0;}
-  .brand-mark .feather-wrap img{border-radius:10px;}
-  .brand-k{
-    font-family:'Fraunces',serif;font-weight:700;font-size:3.2rem;color:var(--navy);
-    line-height:0.78;letter-spacing:-0.01em;
-  }
-  .brand-rest{
-    font-family:'Fraunces',serif;font-weight:700;font-size:2.5rem;color:var(--green-deep);
-    line-height:0.85;
-  }
-  .brand-devanagari{
-    font-size:1.05rem;color:var(--orange);font-weight:700;margin:4px 0 2px 4px;letter-spacing:0.04em;
-  }
-  .brand-tagline{
-    font-family:'JetBrains Mono', monospace; font-size:0.66rem;letter-spacing:0.18em;text-transform:uppercase;
-    margin-left:4px;font-weight:700;
-  }
-  .brand-tagline .n{color:var(--green-deep);}
-  .brand-tagline .e{color:var(--orange);}
-  .brand-tagline .t{color:var(--navy);}
-  .brand-tagline .sep{color:#cfc6b3;margin:0 6px;font-weight:400;}
+  .brand-mark{display:flex;align-items:center;}
+  .brand-mark .feather-wrap{height:64px;flex-shrink:0;}
+  .brand-mark .feather-wrap img{height:100%;width:auto;display:block;}
 
   nav.links{display:flex;gap:34px;align-items:center;}
   nav.links a{font-weight:600;font-size:1.02rem;color:var(--ink);position:relative;padding-bottom:6px;transition:color .15s;}
@@ -141,7 +122,6 @@
   }
   @media (max-width:640px){
     .nav-row{padding:18px 0;}
-    .brand-rest{font-size:1.9rem;}
     .value-row{justify-content:center;}
     .value-divider{display:none;}
     .trust-row{justify-content:center;}
@@ -157,15 +137,8 @@
     <a href="#" class="brand">
       <div class="brand-mark">
         <div class="feather-wrap">
-          <img src="https://res.cloudinary.com/djldnhmfn/image/upload/v1782283794/Kart_Logo_hu12qx.jpg" alt="Kartavyata logo" style="width:100%;height:auto;display:block;">
+          <img src="https://res.cloudinary.com/djldnhmfn/image/upload/v1782283794/Kart_Logo_hu12qx.jpg" alt="Kartavyata logo">
         </div>
-        <div>
-          <span class="brand-k">K</span><span class="brand-rest">artavyata</span>
-        </div>
-      </div>
-      <div class="brand-devanagari">‖ कर्तव्यता ‖</div>
-      <div class="brand-tagline">
-        <span class="n">Nurture</span><span class="sep">|</span><span class="e">Empower</span><span class="sep">|</span><span class="t">Transform</span>
       </div>
     </a>
 
