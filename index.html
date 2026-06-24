@@ -3,490 +3,284 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kartavyata Blog — Stories, Ideas & Updates</title>
+<title>Kartavyata — Why Children?</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#1B2A4A;
+    --navy:#11203F;      /* logo-matched deep navy/blue */
+    --navy-soft:#1B2A4A;
     --paper:#FBF7EF;
     --paper-dim:#F1EADA;
     --marigold:#F2A93B;
     --brick:#C1502E;
     --slate:#5B6786;
     --line:#D8CFB8;
-    --ink-soft: rgba(27,42,74,0.7);
-    --shadow: 0 18px 40px -22px rgba(27,42,74,0.35);
-    --radius: 14px;
+    --ink-soft: rgba(17,32,63,0.7);
+    --shadow: 0 18px 40px -22px rgba(17,32,63,0.4);
   }
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+  body{margin:0;background:var(--paper);color:var(--navy);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
   img{max-width:100%;display:block;}
   a{color:inherit;text-decoration:none;}
   button{font-family:inherit;cursor:pointer;}
   .display{font-family:'Fraunces',serif;font-weight:600;letter-spacing:-0.01em;}
   .mono{font-family:'JetBrains Mono',monospace;}
-  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--brick);display:inline-flex;align-items:center;gap:8px;}
-  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--marigold);display:inline-block;}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 28px;}
 
-  /* ---------- header ---------- */
-  header{position:sticky;top:0;z-index:50;background:rgba(251,247,239,0.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
-  .nav-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;}
-  .brand{display:flex;align-items:center;gap:12px;}
-  .brand img{height:42px;width:42px;object-fit:cover;border-radius:9px;background:#fff;border:1px solid var(--line);}
-  .brand-name{font-family:'Fraunces',serif;font-weight:600;font-size:1.15rem;}
+  /* ---------- utility bar ---------- */
+  .util-bar{background:#0B1426;color:#fff;font-size:0.82rem;}
+  .util-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;gap:20px;}
+  .util-left{display:flex;gap:26px;align-items:center;flex-wrap:wrap;}
+  .util-left a{display:flex;align-items:center;gap:7px;color:rgba(255,255,255,0.85);transition:color .15s;}
+  .util-left a:hover{color:var(--marigold);}
+  .util-left svg{width:14px;height:14px;flex-shrink:0;}
+  .util-right{display:flex;align-items:center;gap:18px;}
+  .util-search{
+    display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.18);border-radius:999px;padding:6px 14px;
+  }
+  .util-search input{
+    background:transparent;border:none;outline:none;color:#fff;font-size:0.8rem;width:120px;
+  }
+  .util-search input::placeholder{color:rgba(255,255,255,0.5);}
+  .util-search svg{width:14px;height:14px;color:rgba(255,255,255,0.6);}
+  .social-row{display:flex;gap:10px;}
+  .social-row a{
+    width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.08);
+    display:flex;align-items:center;justify-content:center;transition:background .15s;
+  }
+  .social-row a:hover{background:var(--marigold);}
+  .social-row svg{width:13px;height:13px;color:#fff;}
+
+  /* ---------- main nav ---------- */
+  header.main-nav{background:#fff;border-bottom:1px solid var(--line);position:relative;z-index:60;}
+  .nav-row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:30px;}
+  .brand{display:flex;align-items:center;gap:12px;flex-shrink:0;}
+  .brand img{height:54px;width:54px;object-fit:cover;border-radius:11px;background:#fff;border:1px solid var(--line);}
+  .brand-name{font-family:'Fraunces',serif;font-weight:600;font-size:1.3rem;color:var(--navy);}
   .brand-name span{display:block;font-family:'JetBrains Mono',monospace;font-size:0.62rem;letter-spacing:0.14em;color:var(--slate);font-weight:400;text-transform:uppercase;}
-  nav.links{display:flex;gap:30px;align-items:center;}
-  nav.links a{font-size:0.92rem;font-weight:500;color:var(--ink-soft);transition:color .2s;}
-  nav.links a:hover{color:var(--brick);}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:600;font-size:0.92rem;border:1.5px solid transparent;transition:transform .15s ease, box-shadow .15s ease;}
-  .btn:active{transform:scale(0.97);}
-  .btn-primary{background:var(--brick);color:var(--paper);box-shadow:var(--shadow);}
-  .btn-primary:hover{box-shadow:0 20px 34px -18px rgba(193,80,46,0.55);}
-  .btn-small{padding:9px 16px;font-size:0.82rem;}
+
+  nav.links{display:flex;gap:6px;align-items:center;flex:1;justify-content:center;}
+  .nav-item{position:relative;}
+  .nav-item > a{
+    display:flex;align-items:center;gap:6px;padding:10px 16px;font-weight:600;font-size:0.95rem;
+    color:var(--navy);border-radius:8px;transition:background .15s, color .15s;
+  }
+  .nav-item > a svg{width:14px;height:14px;color:var(--marigold);transition:transform .2s;}
+  .nav-item:hover > a{background:var(--paper-dim);color:var(--brick);}
+  .nav-item:hover > a svg{transform:rotate(180deg);}
+  .dropdown{
+    position:absolute;top:100%;left:0;background:#fff;border:1px solid var(--line);border-radius:12px;
+    box-shadow:var(--shadow);min-width:230px;padding:10px;opacity:0;visibility:hidden;transform:translateY(6px);
+    transition:all .18s ease;
+  }
+  .nav-item:hover .dropdown{opacity:1;visibility:visible;transform:translateY(0);}
+  .dropdown a{display:block;padding:10px 14px;border-radius:8px;font-size:0.88rem;color:var(--ink-soft);font-weight:500;}
+  .dropdown a:hover{background:var(--paper-dim);color:var(--brick);}
+
+  .btn-donate{
+    display:flex;align-items:center;gap:9px;background:var(--navy);color:#fff;
+    padding:13px 26px;border-radius:999px;font-weight:700;font-size:0.95rem;flex-shrink:0;
+    box-shadow:var(--shadow);transition:transform .15s, box-shadow .15s;border:none;
+  }
+  .btn-donate:hover{transform:translateY(-1px);box-shadow:0 22px 34px -18px rgba(17,32,63,0.55);}
+  .btn-donate svg{width:16px;height:16px;color:var(--marigold);}
   .menu-toggle{display:none;background:none;border:none;}
 
-  /* ---------- breadcrumb ---------- */
-  .crumb{padding:16px 0;font-size:0.82rem;color:var(--slate);}
-  .crumb a:hover{color:var(--brick);}
-  .crumb span{margin:0 8px;color:var(--line);}
-
-  /* ---------- blog hero ---------- */
-  .blog-hero{padding:18px 0 50px;text-align:center;}
-  .blog-hero h1{font-size:clamp(2.1rem,4vw,3.1rem);margin:14px 0 14px;}
-  .blog-hero p{color:var(--slate);max-width:560px;margin:0 auto 30px;font-size:1.02rem;line-height:1.6;}
-  .search-bar{
-    max-width:480px;margin:0 auto;display:flex;align-items:center;gap:10px;
-    border:1.5px solid var(--ink);border-radius:999px;padding:6px 6px 6px 20px;background:var(--paper);
+  /* ---------- hero ---------- */
+  .hero{padding:70px 0 0;text-align:center;background:var(--paper);}
+  .hero .eyebrow{
+    font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;
+    color:var(--brick);display:inline-flex;align-items:center;gap:8px;margin-bottom:10px;
   }
-  .search-bar input{flex:1;border:none;outline:none;background:transparent;font-size:0.95rem;padding:10px 0;color:var(--ink);}
-  .search-bar button{background:var(--ink);color:var(--paper);border-radius:999px;padding:10px 18px;border:none;font-size:0.85rem;font-weight:600;}
-
-  /* ---------- category pills ---------- */
-  .cat-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px;}
-  .cat-pill{
-    font-family:'JetBrains Mono',monospace;font-size:0.74rem;letter-spacing:0.04em;text-transform:uppercase;
-    padding:8px 16px;border-radius:999px;border:1.3px solid var(--line);color:var(--slate);background:var(--paper);
-    transition:all .15s;
+  .hero .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--marigold);display:inline-block;}
+  .hero h1{font-size:clamp(2.4rem,5vw,3.8rem);margin:6px 0 26px;color:var(--navy);}
+  .underline{width:140px;height:3px;background:var(--navy);margin:0 auto 34px;border-radius:2px;position:relative;}
+  .underline::after{
+    content:"";position:absolute;left:50%;top:-4px;transform:translateX(-50%);
+    width:11px;height:11px;border-radius:50%;background:var(--marigold);
   }
-  .cat-pill:hover{border-color:var(--ink);color:var(--ink);}
-  .cat-pill.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
-
-  /* ---------- featured post ---------- */
-  .featured{padding:10px 0 70px;}
-  .featured-card{
-    display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--ink);border-radius:var(--radius);
-    overflow:hidden;box-shadow:var(--shadow);background:var(--paper-dim);
+  .hero p.lede{
+    max-width:680px;margin:0 auto 50px;font-size:1.18rem;line-height:1.7;color:var(--slate);
   }
-  .featured-art{position:relative;min-height:320px;}
-  .featured-body{padding:40px;display:flex;flex-direction:column;justify-content:center;}
-  .featured-body .tag{
-    font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;
-    color:var(--brick);background:rgba(193,80,46,0.12);padding:5px 12px;border-radius:999px;width:fit-content;margin-bottom:16px;
+  .hero p.lede b{color:var(--navy);}
+
+  /* ---------- hero photo with brand-colour wash ---------- */
+  .hero-photo{position:relative;width:100%;line-height:0;overflow:hidden;}
+  .hero-photo svg{display:block;width:100%;height:auto;}
+  .hero-photo .cta-overlay{
+    position:absolute;bottom:34px;left:0;right:0;display:flex;justify-content:center;gap:16px;flex-wrap:wrap;z-index:5;
   }
-  .featured-body h2{font-size:clamp(1.4rem,2.6vw,1.9rem);margin:0 0 12px;line-height:1.2;}
-  .featured-body p{color:var(--slate);font-size:0.95rem;line-height:1.6;margin:0 0 20px;}
-  .meta{display:flex;gap:16px;align-items:center;font-family:'JetBrains Mono',monospace;font-size:0.74rem;color:var(--ink-soft);}
-  .read-more{font-weight:700;color:var(--brick);display:inline-flex;align-items:center;gap:6px;font-size:0.9rem;}
-  .read-more svg{width:14px;height:14px;transition:transform .15s;}
-  a:hover .read-more svg{transform:translateX(3px);}
-
-  /* ---------- post grid ---------- */
-  .grid-section{padding:0 0 80px;}
-  .grid-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:34px;flex-wrap:wrap;gap:10px;}
-  .grid-head h3{font-size:1.4rem;margin:0;}
-  .grid-head span{font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:var(--slate);}
-  .post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
-  .post-card{
-    border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--paper);
-    transition:transform .2s ease, box-shadow .2s ease;display:flex;flex-direction:column;
+  .pill-btn{
+    display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:999px;font-weight:700;font-size:0.98rem;
   }
-  .post-card:hover{transform:translateY(-5px);box-shadow:var(--shadow);}
-  .post-art{height:170px;position:relative;}
-  .post-body{padding:22px;display:flex;flex-direction:column;gap:10px;flex:1;}
-  .post-body .tag{
-    font-family:'JetBrains Mono',monospace;font-size:0.66rem;letter-spacing:0.06em;text-transform:uppercase;
-    color:var(--brick);width:fit-content;
-  }
-  .post-body h4{font-family:'Fraunces',serif;font-weight:600;font-size:1.08rem;margin:0;line-height:1.32;}
-  .post-body p{color:var(--slate);font-size:0.87rem;line-height:1.55;margin:0;flex:1;}
-  .post-foot{display:flex;justify-content:space-between;align-items:center;margin-top:6px;font-size:0.78rem;}
-  .post-foot .date{color:var(--ink-soft);font-family:'JetBrains Mono',monospace;}
-  .post-card.hidden{display:none;}
+  .pill-btn.primary{background:var(--navy);color:#fff;box-shadow:0 14px 30px -12px rgba(0,0,0,0.45);}
+  .pill-btn.primary svg{width:16px;height:16px;color:var(--marigold);}
+  .pill-btn.ghost{background:rgba(255,255,255,0.92);color:var(--navy);}
 
-  /* ---------- pagination ---------- */
-  .pagination{display:flex;justify-content:center;gap:8px;margin-top:48px;}
-  .pagination button{
-    width:38px;height:38px;border-radius:9px;border:1.3px solid var(--line);background:var(--paper);
-    font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--ink);
-  }
-  .pagination button.active{background:var(--ink);color:var(--paper);border-color:var(--ink);}
-  .pagination button:hover:not(.active){border-color:var(--ink);}
-
-  /* ---------- newsletter ---------- */
-  .newsletter{background:var(--ink);color:var(--paper);padding:64px 0;}
-  .news-grid{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;}
-  .news-grid h3{font-size:1.6rem;margin:0 0 8px;}
-  .news-grid p{color:rgba(251,247,239,0.7);margin:0;max-width:380px;font-size:0.92rem;line-height:1.55;}
-  .news-form{display:flex;gap:10px;flex-wrap:wrap;}
-  .news-form input{
-    padding:13px 18px;border-radius:999px;border:1.5px solid rgba(251,247,239,0.3);background:transparent;
-    color:var(--paper);font-size:0.92rem;min-width:240px;outline:none;
-  }
-  .news-form input::placeholder{color:rgba(251,247,239,0.55);}
-  .news-form button{
-    background:var(--marigold);color:var(--ink);border:none;border-radius:999px;padding:13px 24px;font-weight:700;font-size:0.9rem;
-  }
-
-  /* ---------- popular topics ---------- */
-  .topics{padding:60px 0;}
-  .topics .eyebrow{display:block;margin-bottom:18px;}
-  .topics-list{display:flex;flex-wrap:wrap;gap:10px 0;font-size:0.88rem;color:var(--slate);line-height:1.9;}
-  .topics-list a{color:var(--ink-soft);}
-  .topics-list a:hover{color:var(--brick);}
-  .topics-list .sep{margin:0 10px;color:var(--line);}
-
-  /* ---------- footer ---------- */
-  footer{background:var(--ink);color:rgba(251,247,239,0.75);padding:54px 0 30px;}
-  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px;margin-bottom:40px;}
-  .foot-brand{display:flex;gap:12px;align-items:center;margin-bottom:14px;}
-  .foot-brand img{height:42px;width:42px;border-radius:9px;background:#fff;}
-  .foot-brand b{font-family:'Fraunces',serif;color:var(--paper);font-size:1.1rem;}
-  footer p.about{font-size:0.86rem;line-height:1.6;max-width:300px;}
-  footer h4{font-family:'JetBrains Mono',monospace;font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--marigold);margin:0 0 14px;}
-  footer ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;}
-  footer ul a{font-size:0.88rem;color:rgba(251,247,239,0.75);transition:color .2s;}
-  footer ul a:hover{color:var(--marigold);}
-  .foot-bottom{border-top:1px solid rgba(251,247,239,0.16);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:0.78rem;color:rgba(251,247,239,0.55);font-family:'JetBrains Mono',monospace;}
-
-  .toast{position:fixed;bottom:26px;right:26px;background:var(--ink);color:var(--paper);padding:14px 20px;border-radius:10px;font-size:0.88rem;box-shadow:var(--shadow);transform:translateY(20px);opacity:0;transition:all .3s ease;z-index:100;max-width:300px;}
-  .toast.show{transform:translateY(0);opacity:1;}
-
-  @media (max-width:920px){
+  @media (max-width:980px){
     nav.links{display:none;}
     .menu-toggle{display:block;}
-    .featured-card{grid-template-columns:1fr;}
-    .featured-art{min-height:220px;}
-    .post-grid{grid-template-columns:repeat(2,1fr);}
-    .foot-grid{grid-template-columns:1fr 1fr;}
+    .util-left a span.full{display:none;}
   }
-  @media (max-width:600px){
-    .post-grid{grid-template-columns:1fr;}
-    .foot-grid{grid-template-columns:1fr;}
-    .news-grid{flex-direction:column;align-items:flex-start;}
+  @media (max-width:640px){
+    .util-search{display:none;}
+    .social-row{display:none;}
+    .hero p.lede{font-size:1.02rem;}
   }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="wrap nav-row">
-    <a href="#" class="brand">
-      <img src="https://res.cloudinary.com/djldnhmfn/image/upload/v1782283794/Kart_Logo_hu12qx.jpg" alt="Kartavyata logo">
-      <span class="brand-name">Kartavyata<span>OUR DUTY · OUR ACTION</span></span>
-    </a>
-    <nav class="links">
-      <a href="#">Who We Are</a>
-      <a href="#">Our Work</a>
-      <a href="#" style="color:var(--brick);">Blog</a>
-      <a href="#">Transparency</a>
-      <a href="#">Contact</a>
-    </nav>
-    <div style="display:flex;align-items:center;gap:14px;">
-      <a href="#" class="btn btn-primary btn-small">Donate Now</a>
-      <button class="menu-toggle" aria-label="Menu">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-      </button>
-    </div>
-  </div>
-</header>
-
-<div class="wrap crumb">
-  <a href="#">Home</a><span>/</span><span>Blog</span>
-</div>
-
-<section class="blog-hero">
-  <div class="wrap">
-    <span class="eyebrow">Kartavyata Journal</span>
-    <h1 class="display">Stories, numbers &amp; ideas<br>from the field.</h1>
-    <p>Notes from our centres, explainers on giving and tax exemptions, and the children and volunteers whose Kartavyata makes the work possible.</p>
-    <div class="search-bar">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--slate);flex-shrink:0;"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-      <input type="text" id="searchInput" placeholder="Search stories, e.g. “health camp”, “80G”…">
-      <button id="searchBtn">Search</button>
-    </div>
-    <div class="cat-row" id="catRow">
-      <button class="cat-pill active" data-cat="all">All Posts</button>
-      <button class="cat-pill" data-cat="education">Education</button>
-      <button class="cat-pill" data-cat="health">Health &amp; Nutrition</button>
-      <button class="cat-pill" data-cat="protection">Child Protection</button>
-      <button class="cat-pill" data-cat="stories">Field Stories</button>
-      <button class="cat-pill" data-cat="giving">Giving &amp; Tax</button>
-    </div>
-  </div>
-</section>
-
-<section class="featured">
-  <div class="wrap">
-    <a href="#" style="display:block;">
-      <div class="featured-card">
-        <div class="featured-art">
-          <svg viewBox="0 0 600 500" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" style="position:absolute;inset:0;">
-            <rect width="600" height="500" fill="#1B2A4A"/>
-            <circle cx="470" cy="90" r="120" fill="#F2A93B" opacity="0.9"/>
-            <circle cx="90" cy="420" r="160" fill="#C1502E" opacity="0.85"/>
-            <g stroke="#FBF7EF" stroke-width="2" opacity="0.5">
-              <path d="M40 250 q260 -160 520 0" fill="none"/>
-              <path d="M40 300 q260 -160 520 0" fill="none"/>
-            </g>
-          </svg>
+  <!-- ===== UTILITY BAR ===== -->
+  <div class="util-bar">
+    <div class="wrap util-row">
+      <div class="util-left">
+        <a href="mailto:hello@kartavyata.org">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
+          <span class="full">hello@kartavyata.org</span>
+        </a>
+        <a href="tel:+910000000000">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.99.36 1.96.68 2.9a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.18-1.18a2 2 0 0 1 2.11-.45c.94.32 1.91.55 2.9.68A2 2 0 0 1 22 16.92Z"/></svg>
+          <span class="full">+91 00000 00000</span>
+        </a>
+      </div>
+      <div class="util-right">
+        <div class="util-search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input type="text" placeholder="Search">
         </div>
-        <div class="featured-body">
-          <span class="tag">Milestone</span>
-          <h2 class="display">12,400 children later: what FY 2025–26 taught us about staying small on purpose.</h2>
-          <p>We didn't chase scale this year — we chased retention. Here's what happened when we stopped opening new centres and focused on the 38 we already had.</p>
-          <div class="meta">
-            <span>June 18, 2026</span>
-            <span>·</span>
-            <span>7 min read</span>
-            <span style="flex:1;"></span>
-            <span class="read-more">Read the story <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12Z"/></svg></a>
+          <a href="#" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.2 8.3L23 22h-6.4l-5-6.5L5.7 22H2.6l7.7-8.8L1.5 2h6.5l4.6 6.1L18.9 2Z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.4 20.4h-3.5v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.5V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.3-1.8 3.5 0 4.1 2.3 4.1 5.3v6.3ZM5.3 7.4A2 2 0 1 1 5.3 3.4a2 2 0 0 1 0 4ZM7 20.4H3.6V9H7v11.4Z"/></svg></a>
+          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-2.4-.3-3.6c-.2-.7-.7-1.2-1.4-1.4C19 6.6 12 6.6 12 6.6s-7 0-8.3.4c-.7.2-1.2.7-1.4 1.4C2 9.6 2 12 2 12s0 2.4.3 3.6c.2.7.7 1.2 1.4 1.4 1.3.4 8.3.4 8.3.4s7 0 8.3-.4c.7-.2 1.2-.7 1.4-1.4.3-1.2.3-3.6.3-3.6Zm-12 2.6V9.4l5 2.6-5 2.6Z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MAIN NAV ===== -->
+  <header class="main-nav">
+    <div class="wrap nav-row">
+      <a href="#" class="brand">
+        <img src="https://res.cloudinary.com/djldnhmfn/image/upload/v1782283794/Kart_Logo_hu12qx.jpg" alt="Kartavyata logo">
+        <span class="brand-name">Kartavyata<span>OUR DUTY · OUR ACTION</span></span>
+      </a>
+
+      <nav class="links">
+        <div class="nav-item"><a href="#">Home</a></div>
+
+        <div class="nav-item">
+          <a href="#">Who We Are <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></a>
+          <div class="dropdown">
+            <a href="#">Overview</a><a href="#">Mission &amp; Vision</a><a href="#">Our Team</a><a href="#">Certificates</a><a href="#">Financials</a>
           </div>
         </div>
-      </div>
-    </a>
-  </div>
-</section>
 
-<section class="grid-section">
-  <div class="wrap">
-    <div class="grid-head">
-      <h3 class="display">Latest from the field</h3>
-      <span id="resultCount">8 posts</span>
+        <div class="nav-item">
+          <a href="#">What We Do <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></a>
+          <div class="dropdown">
+            <a href="#">Education</a><a href="#">Health &amp; Nutrition</a><a href="#">Skill Training</a><a href="#">Child Protection</a><a href="#">Our Presence</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="#">Get Involved <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></a>
+          <div class="dropdown">
+            <a href="#">Volunteer</a><a href="#">CSR Partnerships</a><a href="#">Ways to Help</a><a href="#">Contact Us</a><a href="#">Careers</a>
+          </div>
+        </div>
+
+        <div class="nav-item">
+          <a href="#">Resources <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 9 6 6 6-6"/></svg></a>
+          <div class="dropdown">
+            <a href="#">Blog</a><a href="#">Annual Reports</a><a href="#">Press Coverage</a><a href="#">FAQs</a>
+          </div>
+        </div>
+      </nav>
+
+      <a href="#" class="btn-donate">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-10-9.3C.4 8.4 2 5 5.4 5c2 0 3.4 1.1 4.1 2.1.7.9 1 1.4 1 1.4s.3-.5 1-1.4C12.2 6.1 13.6 5 15.6 5 19 5 20.6 8.4 19 11.7 16.5 16.4 12 21 12 21Z"/></svg>
+        Donate Now
+      </a>
+      <button class="menu-toggle" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Kartavyata Foundation</span>
+      <h1 class="display">Why Children?</h1>
+      <div class="underline"></div>
+      <p class="lede">Every child carries tomorrow inside them. <b>Invest in their potential today</b>, and they grow into the teachers, doctors, engineers and leaders Bharat will need — that's a duty worth carrying together.</p>
     </div>
 
-    <div class="post-grid" id="postGrid">
+    <!-- full-width photo placeholder with logo-matched navy wash, mirroring the reference layout -->
+    <div class="hero-photo">
+      <svg viewBox="0 0 1600 620" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="skyFade" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#EAF1F8"/>
+            <stop offset="100%" stop-color="#C9D9E8"/>
+          </linearGradient>
+          <linearGradient id="navyWash" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#11203F" stop-opacity="0"/>
+            <stop offset="70%" stop-color="#11203F" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#11203F" stop-opacity="0.96"/>
+          </linearGradient>
+        </defs>
 
-      <a href="#" class="post-card" data-cat="education">
-        <div class="post-art"><svg viewBox="0 0 400 220" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><rect width="400" height="220" fill="#F2A93B"/><circle cx="320" cy="40" r="70" fill="#1B2A4A" opacity="0.15"/><rect x="40" y="120" width="60" height="60" fill="#1B2A4A" opacity="0.25"/></svg></div>
-        <div class="post-body">
-          <span class="tag">Education</span>
-          <h4>Why our after-school centres don't use a single textbook before age 7.</h4>
-          <p>A look at the play-based curriculum we built after watching three years of attendance drop-off.</p>
-          <div class="post-foot"><span class="date">Jun 12, 2026</span><span class="read-more">Read →</span></div>
-        </div>
-      </a>
+        <!-- sky / backdrop -->
+        <rect width="1600" height="620" fill="url(#skyFade)"/>
+        <!-- distant tree line -->
+        <g fill="#8FA98E" opacity="0.55">
+          <ellipse cx="120" cy="430" rx="160" ry="60"/>
+          <ellipse cx="340" cy="420" rx="190" ry="70"/>
+          <ellipse cx="600" cy="435" rx="170" ry="55"/>
+          <ellipse cx="880" cy="415" rx="210" ry="75"/>
+          <ellipse cx="1180" cy="430" rx="190" ry="60"/>
+          <ellipse cx="1440" cy="420" rx="180" ry="65"/>
+        </g>
+        <!-- low wall -->
+        <rect x="0" y="455" width="1600" height="55" fill="#D8CFB8"/>
+        <rect x="0" y="455" width="1600" height="6" fill="#C7BCA0"/>
 
-      <a href="#" class="post-card" data-cat="stories">
-        <div class="post-art"><svg viewBox="0 0 400 220" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><rect width="400" height="220" fill="#C1502E"/><circle cx="80" cy="180" r="90" fill="#FBF7EF" opacity="0.12"/></svg></div>
-        <div class="post-body">
-          <span class="tag">Field Story</span>
-          <h4>Meera left school at 11. At 17, she's teaching the centre's youngest readers.</h4>
-          <p>A scholarship, a stubborn teacher, and four years later — a story we keep coming back to.</p>
-          <div class="post-foot"><span class="date">Jun 5, 2026</span><span class="read-more">Read →</span></div>
-        </div>
-      </a>
+        <!-- children silhouette group (placeholder for a real photo) -->
+        <g fill="#11203F">
+          <circle cx="430" cy="380" r="46"/><rect x="385" y="420" width="90" height="120" rx="20"/>
+          <circle cx="620" cy="350" r="56"/><rect x="565" y="400" width="110" height="150" rx="22"/>
+          <circle cx="820" cy="340" r="58"/><rect x="762" y="392" width="116" height="160" rx="22"/>
+          <circle cx="1020" cy="352" r="54"/><rect x="966" y="402" width="108" height="148" rx="22"/>
+          <circle cx="1190" cy="378" r="44"/><rect x="1148" y="416" width="84" height="120" rx="18"/>
+        </g>
 
-      <a href="#" class="post-card" data-cat="giving">
-        <div class="post-art"><svg viewBox="0 0 400 220" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><rect width="400" height="220" fill="#1B2A4A"/><rect x="60" y="60" width="280" height="100" rx="10" fill="none" stroke="#F2A93B" stroke-width="2" stroke-dasharray="6 6"/></svg></div>
-        <div class="post-body">
-          <span class="tag">Giving &amp; Tax</span>
-          <h4>What an 80G certificate actually saves you — with real numbers.</h4>
-          <p>A plain-language walkthrough of Section 80G exemptions, using a ₹10,000 donation as the example.</p>
-          <div class="post-foot"><span class="date">May 29, 2026</span><span class="read-more">Read →</span></div>
-        </div>
-      </a>
+        <!-- marigold flower motifs scattered, nod to the logo -->
+        <g fill="#F2A93B">
+          <circle cx="200" cy="500" r="10"/><circle cx="225" cy="495" r="10"/><circle cx="212" cy="478" r="10"/><circle cx="190" cy="478" r="10"/><circle cx="237" cy="478" r="10"/>
+          <circle cx="1350" cy="495" r="9"/><circle cx="1372" cy="490" r="9"/><circle cx="1361" cy="474" r="9"/><circle cx="1341" cy="474" r="9"/><circle cx="1382" cy="474" r="9"/>
+        </g>
 
-      <a href="#" class="post-card" data-cat="health">
-        <div class="post-art"><svg viewBox="0 0 400 220" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><rect width="400" height="220" fill="#5B6786"/><circle cx="200" cy="110" r="60" fill="#F2A93B" opacity="0.4"/></svg></div>
-        <div class="post-body">
-          <span class="tag">Health &amp; Nutrition</span>
-          <h4>Inside a one-day health camp in rural Bihar — 80 families, one morning.</h4>
-          <p>What it takes logistically to run a free check-up camp that actually reaches the people who need it.</p>
-          <div class="post-foot"><span class="date">May 22, 2026</span><span class="read-more">Read →</span></div>
-        </div>
-      </a>
+        <!-- bottom navy wash + brand bar, mirroring the reference's coloured strip -->
+        <rect width="1600" height="620" fill="url(#navyWash)"/>
+        <rect x="0" y="600" width="1600" height="20" fill="#11203F"/>
+      </svg>
 
-      <a href="#" class="post-card" data-cat="protection">
-        <div class="post-art"><svg viewBox="0 0 400 220" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><rect width="400" height="220" fill="#F1EADA"/><circle cx="320" cy="180" r="80" fill="#C1502E" opacity="0.18"/></svg></div>
-        <div class="post-body">
-          <span class="tag">Child Protection</span>
-          <h4>How we trained 60 volunteers to spot signs of child labour — without overstepping.</h4>
-          <p>The training module we built with a child-rights lawyer, and why "report, don't intervene" is rule one.</p>
-          <div class="post-foot"><span class="date">May 14, 2026</span><span class="read-more">Read →</span></div>
-        </div>
-      </a>
-
-      <a href="#" class="post-card" data-cat="education">
-        <div class="post-art"><svg viewBox="0 0 400 220" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><rect width="400" height="220" fill="#C1502E"/><path d="M0 180 Q200 100 400 180 L400 220 L0 220 Z" fill="#1B2A4A" opacity="0.4"/></svg></div>
-        <div class="post-body">
-          <span class="tag">Education</span>
-          <h4>Skill training isn't a backup plan — it's the main one for half our students.</h4>
-          <p>Why we stopped treating vocational courses as the "fallback" for kids who didn't take to school.</p>
-          <div class="post-foot"><span class="date">May 6, 2026</span><span class="read-more">Read →</span></div>
-        </div>
-      </a>
-
-      <a href="#" class="post-card" data-cat="giving">
-        <div class="post-art"><svg viewBox="0 0 400 220" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><rect width="400" height="220" fill="#1B2A4A"/><circle cx="120" cy="80" r="50" fill="#F2A93B"/><circle cx="280" cy="150" r="35" fill="#FBF7EF" opacity="0.3"/></svg></div>
-        <div class="post-body">
-          <span class="tag">Giving &amp; Tax</span>
-          <h4>The quiet power of ₹500 a month, compounded over three years.</h4>
-          <p>What a small recurring gift actually funds when it's not interrupted — told through one centre's ledger.</p>
-          <div class="post-foot"><span class="date">Apr 28, 2026</span><span class="read-more">Read →</span></div>
-        </div>
-      </a>
-
-      <a href="#" class="post-card" data-cat="stories">
-        <div class="post-art"><svg viewBox="0 0 400 220" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><rect width="400" height="220" fill="#F2A93B"/><rect x="180" y="40" width="40" height="140" fill="#1B2A4A" opacity="0.2"/></svg></div>
-        <div class="post-body">
-          <span class="tag">Field Story</span>
-          <h4>Our volunteers don't get a stipend. Here's why most of them stay anyway.</h4>
-          <p>Six conversations with people who've taught at the same centre for over two years, unpaid.</p>
-          <div class="post-foot"><span class="date">Apr 19, 2026</span><span class="read-more">Read →</span></div>
-        </div>
-      </a>
-
-    </div>
-
-    <div class="pagination">
-      <button class="active">1</button>
-      <button>2</button>
-      <button>3</button>
-      <button>→</button>
-    </div>
-  </div>
-</section>
-
-<section class="newsletter">
-  <div class="wrap news-grid">
-    <div>
-      <h3 class="display">Get the next story in your inbox.</h3>
-      <p>One email, twice a month. Field notes, not fundraising asks.</p>
-    </div>
-    <form class="news-form" id="newsForm">
-      <input type="email" placeholder="you@email.com" required>
-      <button type="submit">Subscribe</button>
-    </form>
-  </div>
-</section>
-
-<section class="topics">
-  <div class="wrap">
-    <span class="eyebrow">Popular Topics</span>
-    <div class="topics-list">
-      <a href="#">Child Education NGO</a><span class="sep">·</span>
-      <a href="#">Section 80G Explained</a><span class="sep">·</span>
-      <a href="#">Health Camps in Rural India</a><span class="sep">·</span>
-      <a href="#">Volunteer With Us</a><span class="sep">·</span>
-      <a href="#">Child Protection Laws</a><span class="sep">·</span>
-      <a href="#">CSR Partnerships</a><span class="sep">·</span>
-      <a href="#">Monthly Giving</a><span class="sep">·</span>
-      <a href="#">Skill Training Programmes</a><span class="sep">·</span>
-      <a href="#">Girl Child Education</a><span class="sep">·</span>
-      <a href="#">Annual Reports</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <div class="foot-brand">
-          <img src="https://res.cloudinary.com/djldnhmfn/image/upload/v1782283794/Kart_Logo_hu12qx.jpg" alt="Kartavyata logo">
-          <b>Kartavyata</b>
-        </div>
-        <p class="about">A registered Indian trust working on education, health and livelihoods. Our duty, chosen — not assigned.</p>
-      </div>
-      <div>
-        <h4>Organisation</h4>
-        <ul><li><a href="#">Who We Are</a></li><li><a href="#">Our Work</a></li><li><a href="#">Transparency</a></li><li><a href="#">Careers</a></li></ul>
-      </div>
-      <div>
-        <h4>Get Involved</h4>
-        <ul><li><a href="#">Donate</a></li><li><a href="#">Volunteer</a></li><li><a href="#">CSR Partnerships</a></li><li><a href="#">Fundraise for Us</a></li></ul>
-      </div>
-      <div>
-        <h4>Contact</h4>
-        <ul><li>hello@kartavyata.org</li><li>+91 00000 00000</li><li>New Delhi, India</li></ul>
+      <div class="cta-overlay">
+        <a href="#" class="pill-btn primary">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21s-7.5-4.6-10-9.3C.4 8.4 2 5 5.4 5c2 0 3.4 1.1 4.1 2.1.7.9 1 1.4 1 1.4s.3-.5 1-1.4C12.2 6.1 13.6 5 15.6 5 19 5 20.6 8.4 19 11.7 16.5 16.4 12 21 12 21Z"/></svg>
+          Sponsor a Child
+        </a>
+        <a href="#" class="pill-btn ghost">See Our Work</a>
       </div>
     </div>
-    <div class="foot-bottom">
-      <span>© 2026 Kartavyata Foundation. Reg. No. XXXXX. All rights reserved.</span>
-      <span>Privacy Policy · Terms · Sitemap</span>
-    </div>
-  </div>
-</footer>
-
-<div class="toast" id="toast"></div>
-
-<script>
-  const cards = document.querySelectorAll('.post-card');
-  const pills = document.querySelectorAll('.cat-pill');
-  const resultCount = document.getElementById('resultCount');
-  const searchInput = document.getElementById('searchInput');
-  let activeCat = 'all';
-
-  function applyFilters(){
-    const q = searchInput.value.trim().toLowerCase();
-    let visible = 0;
-    cards.forEach(card=>{
-      const matchesCat = activeCat === 'all' || card.dataset.cat === activeCat;
-      const text = card.innerText.toLowerCase();
-      const matchesSearch = !q || text.includes(q);
-      const show = matchesCat && matchesSearch;
-      card.classList.toggle('hidden', !show);
-      if(show) visible++;
-    });
-    resultCount.textContent = `${visible} post${visible===1?'':'s'}`;
-  }
-
-  pills.forEach(p=>{
-    p.addEventListener('click', ()=>{
-      pills.forEach(o=>o.classList.remove('active'));
-      p.classList.add('active');
-      activeCat = p.dataset.cat;
-      applyFilters();
-    });
-  });
-
-  document.getElementById('searchBtn').addEventListener('click', applyFilters);
-  searchInput.addEventListener('input', applyFilters);
-  searchInput.addEventListener('keydown', (e)=>{ if(e.key==='Enter'){ e.preventDefault(); applyFilters(); }});
-
-  function showToast(msg){
-    const toast = document.getElementById('toast');
-    toast.textContent = msg;
-    toast.classList.add('show');
-    setTimeout(()=>toast.classList.remove('show'), 3200);
-  }
-
-  document.getElementById('newsForm').addEventListener('submit', (e)=>{
-    e.preventDefault();
-    showToast('Thanks for subscribing — connect this form to your email service to go live.');
-    e.target.reset();
-  });
-
-  const menuToggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('nav.links');
-  menuToggle.addEventListener('click', ()=>{
-    const open = navLinks.style.display === 'flex';
-    navLinks.style.display = open ? 'none' : 'flex';
-    navLinks.style.flexDirection = 'column';
-    navLinks.style.position='absolute';
-    navLinks.style.top='100%';
-    navLinks.style.left='0';
-    navLinks.style.right='0';
-    navLinks.style.background='var(--paper)';
-    navLinks.style.padding='18px 28px';
-    navLinks.style.borderBottom='1px solid var(--line)';
-    navLinks.style.gap='16px';
-  });
-</script>
+  </section>
 
 </body>
 </html>
